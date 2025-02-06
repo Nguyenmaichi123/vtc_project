@@ -1,0 +1,99 @@
+.hero {
+    img {
+        transition: opacity 0.5s ease-in-out;
+        opacity: 1;
+    }
+
+    img:hover {
+        opacity: 0.7;
+    }
+}
+
+.btn-xem-them {
+    padding: 10px 100px;
+    border: 1px solid #b0b0b0;
+    background-color: transparent;
+    color: #b0b0b0;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background-color: #b0b0b0;
+        color: #fff;
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
+
+img {
+    width: 100%;
+}
+
+.banner-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.banner-image {
+    width: 100%;
+    height: auto;
+}
+
+.banner-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+}
+
+.banner-content h2 {
+    font-size: 2.5em;
+    font-weight: bold;
+}
+
+.banner-content p {
+    font-size: 1em;
+    margin-bottom: 20px;
+}
+
+.btn-banner {
+    padding: 10px 20px;
+    border: 1px solid #fff;
+    background-color: white;
+    color: #000;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-banner:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+.about-p-2 {
+    font-size: 13px;
+    font-weight: 300;
+}
+
+.card {
+    img {
+        transition: opacity 0.5s ease;
+        opacity: 1;
+    }
+
+    img:hover {
+        opacity: 0.7;
+    }
+}
