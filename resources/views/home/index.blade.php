@@ -31,7 +31,7 @@
     </div>
 </div>
 <hr>
-<h1 class="text-center fs-4 fw-bold m-5">SẢN PHẨM</h1>
+<h1 class="text-center fs-4 fw-bold m-5">an pham 123</h1>
 <div class="container">
     <div class="row">
         @foreach($products1 as $product)
