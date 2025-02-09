@@ -18,10 +18,10 @@
                     <a class="nav-link" href="#">SẢN PHẨM</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">LIÊN HỆ</a>
+                    <a class="nav-link" href="/lien-he">LIÊN HỆ</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">TIN TỨC</a>
+                    <a class="nav-link" href="tin-tuc">TIN TỨC</a>
                 </li>
             </ul>
             <div class="d-flex align-items-center">
