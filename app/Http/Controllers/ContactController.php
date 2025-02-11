@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ContactMail;
 use App\Models\Contact;
 
 class ContactController extends Controller
@@ -12,16 +14,26 @@ class ContactController extends Controller
         return view('contact.index');
     }
 
-    public function store(Request $request)
+    public function send(Request $request)
     {
         $request->validate([
-            'name' => 'required|min:3',
+            'name' => 'required',
             'email' => 'required|email',
-            'message' => 'required|min:10',
+            'phone' => 'required',
+            'message' => 'required'
         ]);
 
-        Contact::create($request->all());
+        // Lưu vào database
+        $contact = Contact::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'message' => $request->message,
+        ]);
 
-        return redirect()->back()->with('success', 'Cảm ơn bạn đã liên hệ!');
+        // Gửi email
+        Mail::to('lethuhien021202@gmail.com')->send(new ContactMail($contact->toArray()));
+
+        return back()->with('success', 'Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi sớm nhất.');
     }
 }

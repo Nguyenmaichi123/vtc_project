@@ -60,3 +60,6 @@ Route::post('/tin-tuc', [NewsController::class, 'store'])->name('news.store');
 Route::delete('/tin-tuc/{id}', [NewsController::class, 'destroy'])->name('news.destroy');
 Route::get('/lien-he', [ContactController::class, 'index']);
 Route::post('/lien-he', [ContactController::class, 'store']);
+
+Route::get('/contact', [ContactController::class, 'index']);
+Route::post('/contact', [ContactController::class, 'send']);
