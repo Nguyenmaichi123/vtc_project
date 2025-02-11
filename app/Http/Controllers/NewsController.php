@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\News;
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\File;
 
 class NewsController extends Controller
 {
@@ -77,6 +78,65 @@ class NewsController extends Controller
             'posts' => Post::where('category', 'brand')->get(),
         ]);
     }
+
+
+    public function store(Request $request)
+    {
+        // Kiểm tra dữ liệu đầu vào
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'content' => 'required',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        // Xử lý upload ảnh
+        $imagePath = null;
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+
+            // Tạo tên file duy nhất
+            $filename = time() . '_' . $file->getClientOriginalName();
+
+            // Lưu file vào thư mục public/uploads/news
+            $file->move(public_path('uploads/news'), $filename);
+
+            // Lưu đường dẫn ảnh vào database
+            $imagePath = 'uploads/news/' . $filename;
+        }
+
+        // Lưu bài viết vào database
+        News::create([
+            'title' => $request->title,
+            'content' => $request->content,
+            'image' => $imagePath
+        ]);
+
+        return back()->with('success',
+            'Bài viết đã được thêm!'
+        );
+    }
+
+    public function destroy($id)
+    {
+        $news = News::find($id);
+
+        // Kiểm tra xem bài viết có tồn tại không
+        if (!$news) {
+            return back()->with('error', 'Bài viết không tồn tại!');
+        }
+
+        // Xóa file vật lý nếu tồn tại
+        // if ($news->image && File::exists(public_path($news->image))) {
+        //     // Xóa file vật lý
+        //     File::delete(public_path($news->image));
+        // }
+
+        // Xóa bản ghi trong database
+        $news->delete();  // Sử dụng đối tượng để gọi phương thức delete() động
+
+        return back()->with('success', 'Bài viết đã được xóa!');
+    }
+
 
 
 }

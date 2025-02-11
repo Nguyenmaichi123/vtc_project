@@ -11,7 +11,7 @@ class PostController extends Controller
     {
         // Tìm bài viết theo ID
         $post = Post::find($id);
-       
+
         // Nếu bài viết không tồn tại, trả về lỗi 404
         if (!$post) {
             abort(404);
@@ -20,4 +20,5 @@ class PostController extends Controller
         // Trả về view chi tiết bài viết
         return view('news.show', compact('post'));
     }
+
 }
