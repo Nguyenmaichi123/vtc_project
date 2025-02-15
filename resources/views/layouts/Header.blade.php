@@ -16,9 +16,11 @@
                 </li>
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="/all-product">SẢN PHẨM</a>
+                        <a class="nav-link dropdown-toggle" href="/product">SẢN PHẨM</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/on-sale-product">Sản phẩm khuyến mại</a></li>
+                            <li>
+                                <a class="dropdown-item" href="/on-sale-product">Sản phẩm khuyến mại</a>
+                            </li>
                             <li class="nav-item dropdown">
                                 <a class="dropdown-item dropdown-toggle" href="{{ route('product.bestSelling') }}">
                                     Sản phẩm nổi bật
@@ -48,7 +50,6 @@
                 </li>
             </ul>
             <div class="d-flex align-items-center">
-               
                 <a href="#" class="me-3 text-decoration-none text-black">ĐĂNG NHẬP</a>
                 <a href="#" class="text-decoration-none position-relative text-black">
                     <i class="bi bi-cart"></i> GIỎ HÀNG (0)

@@ -23,10 +23,9 @@ Route::get('/gioithieu', function () {
     return view('intro.index');
 });
 
-Route::get('/all-product', [ProductController::class, 'all'])->name('product.all');
+Route::get('/product', [ProductController::class, 'index'])->name('product.index');
 Route::get('/on-sale-product', [ProductController::class, 'onSale'])->name('product.onSale');
 Route::get('/best-selling-product/{category?}', [ProductController::class, 'bestSelling'])->name('product.bestSelling');
 Route::get('/new-product', [ProductController::class, 'new'])->name('product.new');
 
-Route::get('/product', [ProductController::class, 'index']);
 Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.show');

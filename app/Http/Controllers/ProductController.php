@@ -34,10 +34,10 @@ class ProductController extends Controller {
     public function bestSelling($category = null) {
         if ($category) {
             // Lọc sản phẩm theo danh mục
-            $products = Product::where('category', $category)->get();
+            $products = Product::where('category_id', $category)->get();
         } else {
             // Hiển thị tất cả sản phẩm nổi bật
-            $products = Product::whereIn('category', ['jackets', 'shirts'])->get();
+            $products = Product::whereIn('category_id', ['jackets', 'shirts'])->get();
         }
 
         return view('product.bestSelling', compact('category', 'products'));
