@@ -1,7 +1,10 @@
 @vite('resources/scss/Home.scss')
 @extends('layouts.app')
+
 @section('content')
+
 <div class="container mt-5">
+    
     <img src="{{ asset('storage/slider_1.png') }}" alt="" width="100%">
    <hr class="mt-5">
     <div class="row mt-5 hero g-5">

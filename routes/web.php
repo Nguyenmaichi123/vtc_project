@@ -29,12 +29,14 @@ Route::get('/gioithieu', function () {
     return view('intro.index');
 });
 
-Route::get('/tin-tuc', function () {
-    return view('news.index');
+Route::get('/tin-tuc', [NewsController::class,'index'])->name('tin-tuc');
+Route::get('/lien-he', function () {
+    return view('contact.index');
 });
 
-Route::get('/tin-tuc', [NewsController::class, 'index'])->name('news.index');
-Route::get('/tin-tuc/{slug}', [NewsController::class, 'show'])->name('news.show');
+// Route::get('/tin-tuc', [NewsController::class, 'index'])->name('news.index');
+Route::get('/tin-tuc/{slug}', [NewsController::class, 'show'])->name('news.show1');
+
 // Route cho chức năng tìm kiếm (nếu bạn có xây dựng chức năng này)
 Route::get('/search', function (Request $request) {
     // Xử lý tìm kiếm và trả về view tương ứng
@@ -46,20 +48,7 @@ Route::get('/search', function (Request $request) {
     return view('search-results', compact('results', 'query'));
 })->name('search');
 
+// Route::get('/tin-tuc/{id}', [NewsController::class, 'show'])->name('news.show1');
+// Route::get('/tin-tuc/{id}', [NewsController::class, 'show2'])->name('news');
 
-Route::get('/fashion-trends', [NewsController::class, 'fashionTrends'])->name('fashion-trends');
-Route::get('/promotions', [NewsController::class, 'promotions'])->name('promotions');
-Route::get('/outfit-tips', [NewsController::class, 'outfitTips'])->name('outfit-tips');
-Route::get('/product-reviews', [NewsController::class, 'productReviews'])->name('product-reviews');
-Route::get('/brand-news', [NewsController::class, 'brandNews'])->name('brand-news');
 
-Route::get('/news/{id}', [PostController::class, 'show']);
-Route::get('/post/{id}', [PostController::class, 'show'])->name('post.show');
-
-Route::post('/tin-tuc', [NewsController::class, 'store'])->name('news.store');
-Route::delete('/tin-tuc/{id}', [NewsController::class, 'destroy'])->name('news.destroy');
-Route::get('/lien-he', [ContactController::class, 'index']);
-Route::post('/lien-he', [ContactController::class, 'store']);
-
-Route::get('/contact', [ContactController::class, 'index']);
-Route::post('/contact', [ContactController::class, 'send']);
