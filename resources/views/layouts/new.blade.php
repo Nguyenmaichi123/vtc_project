@@ -31,10 +31,7 @@
         <hr>
 
         <div class="row">
-            <!-- <div class="title-head-title">
-                <h1>TIN TỨC</h1>
-            </div> -->
-
+          
             <div class="col-md-3">
                 <div class="Bv">
                     <h2 class="title bvmn">
