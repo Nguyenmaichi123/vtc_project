@@ -30,7 +30,7 @@
             <div class="col-md-7">
                 <h4>ĐỂ LẠI NHẮN</h4>
                 <br>
-                <form action="{{ url('/contact') }}" method="POST">
+                <form action="{{ route('contact.store') }}" method="POST">
                     @csrf
 
                     <div class="mb-3">
@@ -53,7 +53,7 @@
 
                     <div class="mb-3">
                         <label for="message" class="form-label">Lời nhắn:</label>
-                        <textarea id="message" name="message" class="form-control" rows="4" required></textarea>
+                        <input type="text" id="message" name="message" class="form-control" required>
                         @error('message') <div class="text-danger">{{ $message }}</div> @enderror
                     </div>
 
@@ -66,7 +66,7 @@
                 <br>
                 <p><i class="fas fa-map-marker-alt"></i> Tầng 6 - Tòa nhà Ladeco - 266 Đội Cấn, Hà Nội</p>
                 <p><i class="fas fa-phone"></i> 1900 6750</p>
-                <p><i class="fas fa-envelope"></i> support@sapo.vn</p>
+                <p><i class="fas fa-envelope"></i> SupportGentelman@gmail.com</p>
             </div>
         </div>
     </div>

@@ -9,31 +9,23 @@ use App\Models\Contact;
 
 class ContactController extends Controller
 {
-    public function index()
+    public function store(Request $request)
     {
-        return view('contact.index');
-    }
-
-    public function send(Request $request)
-    {
+        // Validate dữ liệu đầu vào
         $request->validate([
-            'name' => 'required',
-            'email' => 'required|email',
-            'phone' => 'required',
-            'message' => 'required'
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'phone' => 'required|string|max:20',
+            'message' => 'required|string',
         ]);
 
         // Lưu vào database
-        $contact = Contact::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'phone' => $request->phone,
-            'message' => $request->message,
-        ]);
+        $contact =  Contact::create($request->all());
 
-        // Gửi email
-        Mail::to('lethuhien021202@gmail.com')->send(new ContactMail($contact->toArray()));
 
-        return back()->with('success', 'Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi sớm nhất.');
+        Mail::to($contact->email)->send(new ContactMail($contact));
+
+        // Quay lại trang trước với thông báo thành công
+        return redirect()->back()->with('success', 'Gửi lời nhắn thành công!');
     }
 }

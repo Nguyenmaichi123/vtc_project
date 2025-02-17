@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 
 use App\Http\Controllers\NewsController;
-use App\Http\Controllers\PostController;
+
 
 use Illuminate\Http\Request;
 
@@ -52,3 +52,5 @@ Route::get('/search', function (Request $request) {
 // Route::get('/tin-tuc/{id}', [NewsController::class, 'show2'])->name('news');
 
 
+// route mail contact
+Route::post('/contact2', [ContactController::class, 'store'])->name('contact.store');
