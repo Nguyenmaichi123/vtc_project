@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 
 use App\Http\Controllers\NewsController;
-
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
 
@@ -21,15 +21,16 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/',[
-    HomeController::class,'home'
+Route::get('/home', [
+    HomeController::class,
+    'home'
 ]);
 
 Route::get('/gioithieu', function () {
     return view('intro.index');
 });
 
-Route::get('/tin-tuc', [NewsController::class,'index'])->name('tin-tuc');
+Route::get('/tin-tuc', [NewsController::class, 'index'])->name('tin-tuc');
 Route::get('/lien-he', function () {
     return view('contact.index');
 });
@@ -54,3 +55,26 @@ Route::get('/search', function (Request $request) {
 
 // route mail contact
 Route::post('/contact2', [ContactController::class, 'store'])->name('contact.store');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/admin', function () {
+        if (Auth::user()->role != 'admin') {
+            abort(403);
+        }
+        return view('admin.dashboard');
+    })->name('admin.dashboard');
+
+    Route::get('/', function () {
+        if (Auth::user()->role != 'customer') {
+            abort(403);
+        }
+        return view('home.index');  // Chú ý đường dẫn đúng với file Blade
+    })->name('home');
+});
+
+Route::get('/home', [HomeController::class, 'index'])->name('home');
