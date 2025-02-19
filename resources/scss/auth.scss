@@ -1,0 +1,354 @@
+// Import Bootstrap
+@import "bootstrap/scss/bootstrap";
+
+// Biến màu sắc
+$primary-color: #40d2ff;
+$background-color: #f4f7f9;
+$card-bg: #fff;
+$border-radius: 10px;
+$google-color: #db4437;
+$facebook-color: #3b5998;
+
+// Background với hình ảnh thời trang
+.auth-container {
+    height: 100vh;
+
+    align-items: center;
+    justify-content: center;
+}
+
+// Card Login
+.login-card {
+    width: 600px;
+    background: $card-bg;
+    padding: 30px;
+    border-radius: $border-radius;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+
+    .login-header {
+        margin-bottom: 20px;
+        h2 {
+            font-size: 26px;
+            color: $primary-color;
+            font-weight: bold;
+        }
+    }
+
+    .login-body {
+        .form-label {
+            font-weight: 500;
+        }
+
+        .form-control {
+            border-radius: 6px;
+            &:focus {
+                border-color: $primary-color;
+                box-shadow: 0 0 4px rgba($primary-color, 0.5);
+            }
+        }
+
+        .forgot-password {
+            font-size: 14px;
+            color: $primary-color;
+            text-decoration: none;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        .btn-primary {
+            background: $primary-color;
+            border: none;
+            &:hover {
+                background: darken($primary-color, 10%);
+            }
+        }
+    }
+}
+
+// Đăng nhập bằng Google & Facebook
+.social-login {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .btn-google, .btn-facebook {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        border-radius: 6px;
+        font-size: 14px;
+        font-weight: 500;
+        text-decoration: none;
+        color: white;
+
+        img {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+    }
+
+    .btn-google {
+        background: $google-color;
+        &:hover {
+            background: darken($google-color, 10%);
+        }
+    }
+
+    .btn-facebook {
+        background: $facebook-color;
+        &:hover {
+            background: darken($facebook-color, 10%);
+        }
+    }
+}
+
+// Gạch ngang "Hoặc"
+.divider {
+    text-align: center;
+    position: relative;
+    margin: 15px 0;
+
+    span {
+        background: $card-bg;
+        padding: 0 10px;
+        position: relative;
+        z-index: 1;
+    }
+
+    &:before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        background: #ccc;
+        top: 50%;
+        left: 0;
+        z-index: 0;
+    }
+}
+// Import Bootstrap
+@import "bootstrap/scss/bootstrap";
+
+// Biến màu sắc
+$primary-color: #4a90e2;
+$background-color: #f4f7f9;
+$card-bg: rgba(255, 255, 255, 0.85);
+$border-radius: 10px;
+
+// Hình nền
+.auth-container {
+    height: 100vh;
+    background: url('/vtc_project/public/storage/slider_1.png') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+// Card Register
+.register-card {
+    width: 600px;
+    background: $card-bg;
+    padding: 30px;
+    border-radius: $border-radius;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+
+    .register-header {
+        margin-bottom: 20px;
+        h2 {
+            font-size: 24px;
+            color: $primary-color;
+            font-weight: bold;
+        }
+    }
+
+    .register-body {
+        .form-label {
+            font-weight: 500;
+        }
+
+        .form-control {
+            border-radius: 6px;
+            &:focus {
+                border-color: $primary-color;
+                box-shadow: 0 0 4px rgba(74, 144, 226, 0.5);
+            }
+        }
+
+        .input-group-text {
+            background: #e9ecef;
+            border: none;
+        }
+
+        .btn-primary {
+            background: $primary-color;
+            border: none;
+            &:hover {
+                background: darken($primary-color, 10%);
+            }
+        }
+
+        .or-divider {
+            display: block;
+            font-size: 14px;
+            font-weight: bold;
+            color: #888;
+        }
+
+        .social-login {
+            .btn {
+                font-size: 16px;
+                font-weight: 500;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                i {
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+}
+// Import Bootstrap
+@import "bootstrap/scss/bootstrap";
+
+// Biến màu sắc
+$primary-color: #4a90e2;
+$background-color: #f4f7f9;
+$card-bg: rgba(255, 255, 255, 0.85);
+$border-radius: 10px;
+
+// Hình nền
+.auth-container {
+    height: 100vh;
+    background: url('/vtc_project/public/storage/slider_1.png') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+// Card Forgot Password
+.forgot-password-card {
+    width: 600px;
+    background: $card-bg;
+    padding: 30px;
+    border-radius: $border-radius;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+
+    .forgot-password-header {
+        margin-bottom: 20px;
+        text-align: center;
+        
+        h2 {
+            font-size: 24px;
+            color: $primary-color;
+            font-weight: bold;
+        }
+
+        p {
+            font-size: 14px;
+            color: #555;
+        }
+    }
+
+    .forgot-password-body {
+        .form-label {
+            font-weight: 500;
+        }
+
+        .form-control {
+            border-radius: 6px;
+            &:focus {
+                border-color: $primary-color;
+                box-shadow: 0 0 4px rgba(74, 144, 226, 0.5);
+            }
+        }
+
+        .input-group-text {
+            background: #e9ecef;
+            border: none;
+        }
+
+        .btn-primary {
+            background: $primary-color;
+            border: none;
+            &:hover {
+                background: darken($primary-color, 10%);
+            }
+        }
+
+        .back-to-login {
+            font-size: 14px;
+            color: $primary-color;
+            text-decoration: none;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+// Import Bootstrap
+@import "bootstrap/scss/bootstrap";
+
+// Biến màu sắc
+$primary-color: #4a90e2;
+$background-color: #f4f7f9;
+$card-bg: #fff;
+$border-radius: 10px;
+
+.auth-container {
+    height: 100vh;
+    background: url('/images/backgroundlogin.png') no-repeat center center / cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.reset-password-card {
+    width: 450px;
+    background: $card-bg;
+    padding: 30px;
+    border-radius: $border-radius;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+    .reset-password-header {
+        margin-bottom: 20px;
+        text-align: center;
+
+        h2 {
+            font-size: 24px;
+            color: $primary-color;
+            font-weight: bold;
+        }
+
+        p {
+            font-size: 14px;
+            color: #666;
+        }
+    }
+
+    .form-label {
+        font-weight: 500;
+    }
+
+    .form-control {
+        border-radius: 6px;
+        &:focus {
+            border-color: $primary-color;
+            box-shadow: 0 0 4px rgba(74, 144, 226, 0.5);
+        }
+    }
+
+    .btn-primary {
+        background: $primary-color;
+        border: none;
+        &:hover {
+            background: darken($primary-color, 10%);
+        }
+    }
+}
