@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,17 +16,17 @@ use App\Http\Controllers\ProductController;
 |
 */
 
-Route::get('/',[
-    HomeController::class,'home'
-]);
+Route::get('/',[HomeController::class,'home']);
 
 Route::get('/gioithieu', function () {
     return view('intro.index');
 });
 
-Route::get('/product', [ProductController::class, 'index'])->name('product.index');
-Route::get('/on-sale-product', [ProductController::class, 'onSale'])->name('product.onSale');
-Route::get('/best-selling-product/{category?}', [ProductController::class, 'bestSelling'])->name('product.bestSelling');
-Route::get('/new-product', [ProductController::class, 'new'])->name('product.new');
+Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+Route::get('/on-sale-product', [ProductController::class, 'onSale'])->name('products.onSale');
+Route::get('/best-selling-product', [ProductController::class, 'bestSelling'])->name('products.bestSelling');
+Route::get('/new-product', [ProductController::class, 'new'])->name('products.new');
 
-Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.show');
+Route::get('/products/search', [ProductController::class, 'search'])->name('products.search');
+Route::get('/products/brand/{brand}', [ProductController::class, 'filterByBrand'])->name('products.filter_by_brand');
+Route::get('/products/type/{type}', [ProductController::class, 'filterByType'])->name('products.filter_by_type');

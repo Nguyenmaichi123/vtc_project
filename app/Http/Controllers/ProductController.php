@@ -1,41 +1,60 @@
 <?php
-    
-namespace App\Http\Controllers;
-use App\Models\Products;
-use App\Models\Category;
 
+namespace App\Http\Controllers;
+use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller {
     public function index() {
-        $products = Products::all();
+        $products = Product::paginate(8);
+        
         return view('products.index', compact('products'));
-
-        // $categories = Category::all(); // Lấy tất cả danh mục
-        // $discountedProducts = Products::where('discount_price', '>', 0)->get(); // Sản phẩm giảm giá
-        // $jackets = Products::where('category_id', 1)->get(); // Giả sử ID 1 là áo khoác
-        // $shirts = Products::where('category_id', 2)->get(); // Giả sử ID 2 là áo sơ mi
-        // $newProducts = Products::latest()->take(8)->get(); // 8 sản phẩm mới nhất
-
-        // return view('product.index', compact('categories', 'discountedProducts', 'jackets', 'shirts', 'newProducts'));
     }
-
-    public function show($id) {
-        $product = Products::findOrFail($id);
-        return view('product.show', compact('product'));
-    }
-
-    public function all() {
-        $products = Products::all(); // Lấy tất cả sản phẩm
-        return view('product.all', compact('products'));
-    }
-
+    // khuyen mai
     public function onSale() {
-        return view('product.onSale');
+        $products = Product::where('category', 'on_sale')->paginate(8);
+
+        return view('products.onSale', compact('products'));
+    }
+    // noi bat
+    public function bestSelling() {
+        $products = Product::where('category', 'best_selling')->paginate(8);
+
+        return view('products.bestSelling', compact('products'));
+    }
+    // moi
+    public function new() {
+        $products = Product::where('category', 'new')->paginate(8);
+
+        return view('products.new', compact('products'));
     }
 
-    public function new() {
-        return view('product.new');
+    public function search(Request $request) {
+        $searchTerm = '%' . $request->input('search') . '%';
+        $products = Product::where('name', 'LIKE', $searchTerm)->paginate(8);
+        
+        if ($products->isEmpty()) {
+            return view('products.index', [
+                'message' => 'Không có sản phẩm nào tìm thấy.',
+            ]);
+        }
+        
+        return view('products.index', compact('products'));
+    }
+
+    public function filterByBrand($brand) {
+        $products = Product::where('brand', $brand)->get();
+        $brands = Product::distinct()->pluck('brand')->toArray();
+
+        return view('products.index', compact('products', 'brands'));
+    }
+
+    public function filterByType($type) {
+        $products = Product::where('type', $type)->get();
+        $types = Product::distinct()->pluck('type')->toArray();
+        
+        return view('products.index', compact('products', 'types'));
     }
 }
 

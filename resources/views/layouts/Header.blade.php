@@ -16,29 +16,18 @@
                 </li>
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="/product">SẢN PHẨM</a>
+                        <!-- <a class="nav-link dropdown-toggle" href="/product">SẢN PHẨM</a> -->
+                        <a class="nav-link dropdown-toggle" href="{{ route('products.index') }}">SẢN PHẨM</a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a class="dropdown-item" href="/on-sale-product">Sản phẩm khuyến mại</a>
+                                <a class="dropdown-item" href="{{ route('products.onSale') }}">Sản phẩm khuyến mại</a>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="dropdown-item dropdown-toggle" href="{{ route('product.bestSelling') }}">
+                                <a class="dropdown-item" href="{{ route('products.bestSelling') }}">
                                     Sản phẩm nổi bật
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a class="dropdown-item" href="{{ route('product.bestSelling', ['category' => 'jackets']) }}">
-                                            Áo khoác
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="{{ route('product.bestSelling', ['category' => 'shirts']) }}">
-                                            Áo sơ mi
-                                        </a>
-                                    </li>
-                                </ul>
+                                </a>       
                             </li>
-                            <li><a class="dropdown-item" href="/new-product">Sản phẩm mới</a></li>
+                            <li><a class="dropdown-item" href="{{ route('products.new') }}">Sản phẩm mới</a></li>
                         </ul>
                     </li>
                 </ul>
