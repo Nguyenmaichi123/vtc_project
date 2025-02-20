@@ -54,7 +54,9 @@
         @foreach($products2 as $product)
         <div class="col-md-3">
             <div class="card border-0">
-             <a href=""><img src="{{ Storage::url($product->img) }}" class="card-img-top" alt="Quần jean mãi Only"></a>
+            <a href="">
+                <img src="{{ Storage::url($product->img) }}" class="card-img-top" alt="Quần jean mãi Only">
+            </a>
                 <div class="card-body text-center">
                     <p class="card-text">{{$product->name}}</p>
                     <h5 class="font-weight-bold">{{$product->price}}$</h5>
@@ -62,12 +64,14 @@
             </div>
         </div>
         @endforeach
-        <a href="" class="text-center"><button class="btn-xem-them">XEM THÊM</button></a>
+        <a href="" class="text-center">
+            <button class="btn-xem-them">XEM THÊM</button>
+        </a>
     </div>
     
     <div class="row">
         <div class="col-md-6">
-    <div class="banner-container mt-5">
+        <div class="banner-container mt-5">
         <img src="{{ asset('storage/twobanner_1.png') }}" class="banner-image" alt="Handmade Image">
         <div class="banner-content">
             <h2>HANDMADE</h2>

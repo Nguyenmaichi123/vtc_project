@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+ 
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ContactController;
@@ -10,10 +11,28 @@ use Illuminate\Http\Request;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
+use App\Http\Controllers\ProductController;
+
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+Route::get('/',[HomeController::class,'home'])->name('home.index');
+
+
 Route::get('/gioithieu', function () {
     return view('intro.index');
 });
 
+ 
 Route::get('/tin-tuc', [NewsController::class, 'index'])->name('tin-tuc');
 Route::get('/tin-tuc/{slug}', [NewsController::class, 'show'])->name('news.show1');
 
@@ -69,3 +88,15 @@ Route::middleware(['auth'])->group(function () {
 Route::get('/home', function () {
     return redirect('/');
 })->name('home');
+
+Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+Route::get('/on-sale-product', [ProductController::class, 'onSale'])->name('products.onSale');
+Route::get('/best-selling-product', [ProductController::class, 'bestSelling'])->name('products.bestSelling');
+Route::get('/new-product', [ProductController::class, 'new'])->name('products.new');
+
+Route::get('/products/search', [ProductController::class, 'search'])->name('products.search');
+Route::get('/products/brand/{brand}', [ProductController::class, 'filterByBrand'])->name('products.filterByBrand');
+Route::get('/products/type/{type}', [ProductController::class, 'filterByType'])->name('products.filterByType');
+
+Route::get('/product-detail/{id}', [ProductController::class, 'showDetail'])->name('products.detail');
+
