@@ -10,6 +10,8 @@
             </form>
         </div>
     </div>
+    
+  
     <!-- Tiêu đề trang -->
     <h2 class="text-center mb-3">{{ $pageTitle ?? 'Danh sách sản phẩm' }}</h2>
     <!-- Bộ lọc sản phẩm -->
@@ -26,8 +28,8 @@
                     <label class="form-label pe-3">Thương hiệu</label>
                     <select id="brand-select" class="p-2 border bg-dark text-light" onchange="filterByBrand()">
                         <option class="" value="">Chọn nhà sản xuất</option>
-                        @if(isset($products) && $products->count() > 0)
-                            @foreach (array_unique($products->pluck('brand')->toArray()) as $brand)
+                        @if(isset($brands) && $brands->count() > 0)
+                            @foreach ($brands as $brand)
                                 <option value="{{ $brand }}">{{ $brand }}</option>
                             @endforeach
                         @endif
@@ -37,8 +39,8 @@
                     <label class="form-label pe-3">Loại sản phẩm</label>
                     <select id="type-select" class="p-2 border bg-dark text-light" onchange="filterByType()">
                         <option value="">Chọn loại sản phẩm</option>
-                        @if(isset($products) && $products->count() > 0)
-                            @foreach (array_unique($products->pluck('type')->toArray()) as $type)
+                        @if(isset($types) && $types->count() > 0)
+                            @foreach ($types as $type)
                                 <option value="{{ $type }}">{{ $type }}</option>
                             @endforeach
                         @endif
@@ -141,16 +143,14 @@
 
 <script>
 function filterByBrand() {
-    const select = document.getElementById('brand-select');
-    const brand = select.value;
-    if (brand) {
-        window.location.href = `/products/brand/${encodeURIComponent(brand)}`;
-        window.location.reload();
-    }
+    const brand = document.getElementById('brand-select').value;
+    window.location.href = "{{ url('/products/brand') }}/" + encodeURIComponent(brand);
+   
 }
 
 function filterByType() {
     const type = document.getElementById('type-select').value;
     window.location.href = `/products/type/${type}`;
+    
 }
 </script>

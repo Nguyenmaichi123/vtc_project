@@ -8,8 +8,9 @@ use Illuminate\Http\Request;
 class ProductController extends Controller {
     public function index() {
         $products = Product::paginate(8);
-        
-        return view('products.index', compact('products'));
+        $brands = Product::distinct()->pluck('brand');
+        $types = Product::distinct()->pluck('type');
+        return view('products.index', compact('products','brands','types'));
     }
     // khuyen mai
     public function onSale() {
@@ -35,8 +36,9 @@ class ProductController extends Controller {
         $products = Product::where('name', 'LIKE', $searchTerm)->paginate(8);
 
         $message = $products->isEmpty() ? 'Không có sản phẩm nào tìm thấy.' : null;
-
-        return view('products.index', compact('products', 'message'));
+         $brands = Product::distinct()->pluck('brand');
+         $types = Product::distinct()->pluck('type');
+        return view('products.index', compact('products', 'message','brands','types'));
         
         // if ($products->isEmpty()) {
         //     return view('products.index', [
@@ -48,17 +50,19 @@ class ProductController extends Controller {
     }
 
     public function filterByBrand($brand) {
-        $products = Product::where('brand', $brand)->get();
-        $brands = Product::distinct()->pluck('brand')->toArray();
-
-        return view('products.index', compact('products', 'brands'));
+        $products = Product::where('brand', $brand)->paginate(8);
+        $brands = Product::distinct()->pluck('brand');
+         $types = Product::distinct()->pluck('type');
+        return view('products.index', compact('products','brands','types'));
     }
 
-    public function filterByType($type) {
-        $products = Product::where('type', $type)->get();
-        $types = Product::distinct()->pluck('type')->toArray();
+   
 
-        return view('products.index', compact('products', 'types'));
+    public function filterByType($type) {
+        $products = Product::where('type', $type)->paginate(8);
+        $types = Product::distinct()->pluck('type');
+        $brands = Product::distinct()->pluck('brand');
+        return view('products.index', compact('products', 'types','brands'));
     }
 }
 
