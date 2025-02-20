@@ -57,10 +57,12 @@
         <div class="col-md-3">
             <div class="product-card">
                 @if($product->category === 'on_sale')
-                    <span class="sale-badge">SALE</span>
+                <span class="sale-badge">SALE</span>
                 @endif  
                 <div class="product-image">
-                    <img src="{{ asset('product/' . $product->img) }}" alt="{{ $product->name }}">
+                     <a href="{{ route('products.detail', ['id' => $product->id]) }}">
+                        <img src="{{ asset('product/' . $product->img) }}" alt="{{ $product->name }}">
+                    </a>
                 </div>
                 <div class="product-name">{{ $product->name }}</div>
                 <div>
@@ -76,7 +78,7 @@
                 </div>
                 <!-- Thêm nút "Thêm vào giỏ hàng" -->
                 <div class="mt-2">
-                    <button class="btn btn-primary btn-block">
+                    <button class="btn btn-primary btn-block px-3 border bg-dark text-light">
                         <i class="bi bi-cart-plus"></i> Thêm vào giỏ hàng
                     </button>
                 </div>
@@ -99,8 +101,7 @@
 
 <style>
     /* Tuỳ chỉnh giao diện */
-    .product-card {
-      background-color: #222; /* Màu nền đen */
+.product-card {
       color: #fff;
       text-align: center;
       padding: 15px;
@@ -152,5 +153,11 @@ function filterByType() {
     const type = document.getElementById('type-select').value;
     window.location.href = `/products/type/${type}`;
     
+}
+
+function filterById() {
+    const brand = document.getElementById('brand-select').value;
+    window.location.href = "{{ url('/products/brand') }}/" + encodeURIComponent(brand);
+   
 }
 </script>

@@ -55,14 +55,18 @@ class ProductController extends Controller {
          $types = Product::distinct()->pluck('type');
         return view('products.index', compact('products','brands','types'));
     }
-
    
-
     public function filterByType($type) {
         $products = Product::where('type', $type)->paginate(8);
         $types = Product::distinct()->pluck('type');
         $brands = Product::distinct()->pluck('brand');
         return view('products.index', compact('products', 'types','brands'));
+    }
+
+    public function showDetail($id) {
+        $products = Product::where('id', $id)->get();
+    
+        return view('products.ProductDetail', compact('products'));
     }
 }
 

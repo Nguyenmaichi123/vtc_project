@@ -16,7 +16,7 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/',[HomeController::class,'home']);
+Route::get('/',[HomeController::class,'home'])->name('home.index');
 
 Route::get('/gioithieu', function () {
     return view('intro.index');
@@ -30,3 +30,5 @@ Route::get('/new-product', [ProductController::class, 'new'])->name('products.ne
 Route::get('/products/search', [ProductController::class, 'search'])->name('products.search');
 Route::get('/products/brand/{brand}', [ProductController::class, 'filterByBrand'])->name('products.filterByBrand');
 Route::get('/products/type/{type}', [ProductController::class, 'filterByType'])->name('products.filterByType');
+
+Route::get('/product-detail/{id}', [ProductController::class, 'showDetail'])->name('products.detail');
