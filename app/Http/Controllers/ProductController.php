@@ -33,14 +33,18 @@ class ProductController extends Controller {
     public function search(Request $request) {
         $searchTerm = '%' . $request->input('search') . '%';
         $products = Product::where('name', 'LIKE', $searchTerm)->paginate(8);
+
+        $message = $products->isEmpty() ? 'Không có sản phẩm nào tìm thấy.' : null;
+
+        return view('products.index', compact('products', 'message'));
         
-        if ($products->isEmpty()) {
-            return view('products.index', [
-                'message' => 'Không có sản phẩm nào tìm thấy.',
-            ]);
-        }
+        // if ($products->isEmpty()) {
+        //     return view('products.index', [
+        //         'message' => 'Không có sản phẩm nào tìm thấy.',
+        //     ]);
+        // }
         
-        return view('products.index', compact('products'));
+        // return view('products.index', compact('products'));
     }
 
     public function filterByBrand($brand) {
@@ -53,7 +57,7 @@ class ProductController extends Controller {
     public function filterByType($type) {
         $products = Product::where('type', $type)->get();
         $types = Product::distinct()->pluck('type')->toArray();
-        
+
         return view('products.index', compact('products', 'types'));
     }
 }

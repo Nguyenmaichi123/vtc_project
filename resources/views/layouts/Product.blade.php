@@ -8,7 +8,6 @@
                     <i class="bi bi-search"></i>
                 </button>
             </form>
-
         </div>
     </div>
     <!-- Tiêu đề trang -->
@@ -141,17 +140,17 @@
 </style>
 
 <script>
-    function filterByBrand() {
-        const select = document.getElementById('brand-select');
-        const brand = select.value;
-        if (brand) {
-            window.location.href = `/products/brand/${encodeURIComponent(brand)}`;
-            window.location.reload();
-        }
+function filterByBrand() {
+    const select = document.getElementById('brand-select');
+    const brand = select.value;
+    if (brand) {
+        window.location.href = `/products/brand/${encodeURIComponent(brand)}`;
+        window.location.reload();
     }
+}
 
-    function filterByType() {
-        const type = document.getElementById('type-select').value;
-        window.location.href = `/products/type/${type}`;
-    }
+function filterByType() {
+    const type = document.getElementById('type-select').value;
+    window.location.href = `/products/type/${type}`;
+}
 </script>

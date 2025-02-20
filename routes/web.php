@@ -28,5 +28,5 @@ Route::get('/best-selling-product', [ProductController::class, 'bestSelling'])->
 Route::get('/new-product', [ProductController::class, 'new'])->name('products.new');
 
 Route::get('/products/search', [ProductController::class, 'search'])->name('products.search');
-Route::get('/products/brand/{brand}', [ProductController::class, 'filterByBrand'])->name('products.filter_by_brand');
-Route::get('/products/type/{type}', [ProductController::class, 'filterByType'])->name('products.filter_by_type');
+Route::get('/products/brand/{brand}', [ProductController::class, 'filterByBrand'])->name('products.filterByBrand');
+Route::get('/products/type/{type}', [ProductController::class, 'filterByType'])->name('products.filterByType');
