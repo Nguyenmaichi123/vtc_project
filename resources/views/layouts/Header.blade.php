@@ -32,11 +32,12 @@
                     </li>
                 </ul>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">LIÊN HỆ</a>
+                    <a class="nav-link" href="/lien-he">LIÊN HỆ</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">TIN TỨC</a>
+                    <a class="nav-link" href="/tin-tuc">TIN TỨC</a>
                 </li>
+               
             </ul>
             <div class="d-flex align-items-center">
                 <a href="#" class="me-3 text-decoration-none text-black">ĐĂNG NHẬP</a>

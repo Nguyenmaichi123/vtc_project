@@ -56,9 +56,9 @@
             <h5>LIÊN HỆ</h5>
             <div class="footer-content open">
                 <ul class="contact-info">
-                    <li><i class="fas fa-map-marker-alt"></i> 230 buldalasa new york</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Tầng 6 - Tòa nhà Ladeco - 266 Đội Cấn, Hà Nội</li>
                     <li><i class="fas fa-phone"></i> 1900 9999</li>
-                    <li><i class="fas fa-envelope"></i> support@gmail.com</li>
+                    <li><i class="fas fa-envelope"></i> SupportGentelman@gmail.com</li>
                 </ul>
             </div>
         </div>
