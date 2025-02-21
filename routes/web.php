@@ -3,6 +3,8 @@
 use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController;
+use Illuminate\Http\Request;
 
 use App\Http\Controllers\NewsController;
 
@@ -21,13 +23,23 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/',[
-    HomeController::class,'home'
-]);
+Route::get('/',[HomeController::class,'home'])->name('home.index');
 
 Route::get('/gioithieu', function () {
     return view('intro.index');
 });
+
+ quanganh
+Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+Route::get('/on-sale-product', [ProductController::class, 'onSale'])->name('products.onSale');
+Route::get('/best-selling-product', [ProductController::class, 'bestSelling'])->name('products.bestSelling');
+Route::get('/new-product', [ProductController::class, 'new'])->name('products.new');
+
+Route::get('/products/search', [ProductController::class, 'search'])->name('products.search');
+Route::get('/products/brand/{brand}', [ProductController::class, 'filterByBrand'])->name('products.filterByBrand');
+Route::get('/products/type/{type}', [ProductController::class, 'filterByType'])->name('products.filterByType');
+
+Route::get('/product-detail/{id}', [ProductController::class, 'showDetail'])->name('products.detail');
 
 Route::get('/tin-tuc', [NewsController::class,'index'])->name('tin-tuc');
 Route::get('/lien-he', function () {
@@ -54,3 +66,4 @@ Route::get('/search', function (Request $request) {
 
 // route mail contact
 Route::post('/contact2', [ContactController::class, 'store'])->name('contact.store');
+ master
