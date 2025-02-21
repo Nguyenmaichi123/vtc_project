@@ -64,7 +64,9 @@
                         <img src="{{ asset('product/' . $product->img) }}" alt="{{ $product->name }}">
                     </a>
                 </div>
-                <div class="product-name">{{ $product->name }}</div>
+                <div class="product-name">
+                    <p>{{ $product->name }}</p>
+                </div>
                 <div>
                     @if($product->category === 'on_sale')
                     <span class="product-price">{{ number_format($product->sale_price, 2) }}$</span>
@@ -94,15 +96,16 @@
 
 
     <!-- Phân trang -->
-    <div class="d-flex justify-content-center mt-4">
-        {{ $products->links() }}
+    <div class="d-flex justify-content-center align-items-center mt-5 ">
+        {{ $products->links('pagination::bootstrap-4') }}
+
     </div>
 </div>
 
 <style>
     /* Tuỳ chỉnh giao diện */
 .product-card {
-      color: #fff;
+    
       text-align: center;
       padding: 15px;
       border-radius: 5px;
@@ -139,6 +142,15 @@
       text-decoration: line-through;
       color: #888;
       margin-left: 5px;
+    }
+
+    img {
+        transition: opacity 0.5s ease;
+        opacity: 1;
+    }
+
+    img:hover {
+        opacity: 0.7;
     }
 </style>
 
