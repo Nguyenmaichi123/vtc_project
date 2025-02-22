@@ -10,6 +10,7 @@ class ProductController extends Controller {
         $products = Product::paginate(8);
         $brands = Product::distinct()->pluck('brand');
         $types = Product::distinct()->pluck('type');
+        
         return view('products.index', compact('products','brands','types'));
     }
     // khuyen mai
@@ -36,23 +37,17 @@ class ProductController extends Controller {
         $products = Product::where('name', 'LIKE', $searchTerm)->paginate(8);
 
         $message = $products->isEmpty() ? 'Không có sản phẩm nào tìm thấy.' : null;
-         $brands = Product::distinct()->pluck('brand');
-         $types = Product::distinct()->pluck('type');
+        $brands = Product::distinct()->pluck('brand');
+        $types = Product::distinct()->pluck('type');
+
         return view('products.index', compact('products', 'message','brands','types'));
-        
-        // if ($products->isEmpty()) {
-        //     return view('products.index', [
-        //         'message' => 'Không có sản phẩm nào tìm thấy.',
-        //     ]);
-        // }
-        
-        // return view('products.index', compact('products'));
     }
 
     public function filterByBrand($brand) {
         $products = Product::where('brand', $brand)->paginate(8);
         $brands = Product::distinct()->pluck('brand');
-         $types = Product::distinct()->pluck('type');
+        $types = Product::distinct()->pluck('type');
+
         return view('products.index', compact('products','brands','types'));
     }
    
@@ -60,6 +55,7 @@ class ProductController extends Controller {
         $products = Product::where('type', $type)->paginate(8);
         $types = Product::distinct()->pluck('type');
         $brands = Product::distinct()->pluck('brand');
+
         return view('products.index', compact('products', 'types','brands'));
     }
 
