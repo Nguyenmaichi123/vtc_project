@@ -66,3 +66,4 @@ Route::get('/search', function (Request $request) {
 
 // route mail contact
 Route::post('/contact2', [ContactController::class, 'store'])->name('contact.store');
+

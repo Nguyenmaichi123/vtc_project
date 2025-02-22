@@ -41,7 +41,7 @@
                         <option value="">Chọn loại sản phẩm</option>
                         @if(isset($types) && $types->count() > 0)
                             @foreach ($types as $type)
-                                <option value="{{ $type }}">{{ $type }}</option>
+                            <option value="{{ $type }}">{{ $type }}</option>
                             @endforeach
                         @endif
                     </select>
