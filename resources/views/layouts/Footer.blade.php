@@ -4,11 +4,11 @@
             <h5 onclick="toggleFooterContent(this)">THÔNG TIN <i class="fas fa-plus d-lg-none"></i></h5>
             <div class="footer-content">
                 <ul>
-                    <li><a href="#">Trang chủ</a></li>
-                    <li><a href="#">Giới thiệu</a></li>
-                    <li><a href="#">Sản phẩm</a></li>
-                    <li><a href="#">Tin tức</a></li>
-                    <li><a href="#">Liên hệ</a></li>
+                    <li><a href="{{route('home.index')}}">Trang chủ</a></li>
+                    <li><a href="/gioithieu">Giới thiệu</a></li>
+                    <li><a href="{{route('products.index')}}">Sản phẩm</a></li>
+                    <li><a href="{{route('tintuc')}}">Tin tức</a></li>
+                    <li><a href="{{route('lienhe')}}">Liên hệ</a></li>
                 </ul>
             </div>
         </div>
@@ -17,11 +17,11 @@
             <h5 onclick="toggleFooterContent(this)">HỖ TRỢ <i class="fas fa-plus d-lg-none"></i></h5>
             <div class="footer-content">
                 <ul>
-                    <li><a href="#">Trang chủ</a></li>
-                    <li><a href="#">Giới thiệu</a></li>
-                    <li><a href="#">Sản phẩm</a></li>
-                    <li><a href="#">Tin tức</a></li>
-                    <li><a href="#">Liên hệ</a></li>
+                    <li><a href="{{route('home.index')}}">Trang chủ</a></li>
+                    <li><a href="/gioithieu">Giới thiệu</a></li>
+                    <li><a href="{{route('products.index')}}">Sản phẩm</a></li>
+                    <li><a href="{{route('tintuc')}}">Tin tức</a></li>
+                    <li><a href="{{route('lienhe')}}">Liên hệ</a></li>
                 </ul>
             </div>
         </div>
@@ -30,11 +30,11 @@
             <h5 onclick="toggleFooterContent(this)">HƯỚNG DẪN <i class="fas fa-plus d-lg-none"></i></h5>
             <div class="footer-content">
                 <ul>
-                    <li><a href="#">Trang chủ</a></li>
-                    <li><a href="#">Giới thiệu</a></li>
-                    <li><a href="#">Sản phẩm</a></li>
-                    <li><a href="#">Tin tức</a></li>
-                    <li><a href="#">Liên hệ</a></li>
+                    <li><a href="{{route('home.index')}}">Trang chủ</a></li>
+                    <li><a href="/gioithieu">Giới thiệu</a></li>
+                    <li><a href="{{route('products.index')}}">Sản phẩm</a></li>
+                    <li><a href="{{route('tintuc')}}">Tin tức</a></li>
+                    <li><a href="{{route('lienhe')}}">Liên hệ</a></li>
                 </ul>
             </div>
         </div>
@@ -43,11 +43,11 @@
             <h5 onclick="toggleFooterContent(this)">CHÍNH SÁCH <i class="fas fa-plus d-lg-none"></i></h5>
             <div class="footer-content">
                 <ul>
-                    <li><a href="#">Trang chủ</a></li>
-                    <li><a href="#">Giới thiệu</a></li>
-                    <li><a href="#">Sản phẩm</a></li>
-                    <li><a href="#">Tin tức</a></li>
-                    <li><a href="#">Liên hệ</a></li>
+                    <li><a href="{{route('home.index')}}">Trang chủ</a></li>
+                    <li><a href="/gioithieu">Giới thiệu</a></li>
+                    <li><a href="{{route('products.index')}}">Sản phẩm</a></li>
+                    <li><a href="{{route('tintuc')}}">Tin tức</a></li>
+                    <li><a href="{{route('lienhe')}}">Liên hệ</a></li>
                 </ul>
             </div>
         </div>

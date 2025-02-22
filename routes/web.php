@@ -29,6 +29,7 @@ Route::get('/gioithieu', function () {
     return view('intro.index');
 });
 
+
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 Route::get('/on-sale-product', [ProductController::class, 'onSale'])->name('products.onSale');
 Route::get('/best-selling-product', [ProductController::class, 'bestSelling'])->name('products.bestSelling');
@@ -40,10 +41,10 @@ Route::get('/products/type/{type}', [ProductController::class, 'filterByType'])-
 
 Route::get('/product-detail/{id}', [ProductController::class, 'showDetail'])->name('products.detail');
 
-Route::get('/tin-tuc', [NewsController::class,'index'])->name('tin-tuc');
+Route::get('/tin-tuc', [NewsController::class,'index'])->name('tintuc');
 Route::get('/lien-he', function () {
     return view('contact.index');
-});
+})->name('lienhe');
 
 // Route::get('/tin-tuc', [NewsController::class, 'index'])->name('news.index');
 Route::get('/tin-tuc/{slug}', [NewsController::class, 'show'])->name('news.show1');
