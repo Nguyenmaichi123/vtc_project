@@ -32,11 +32,14 @@
             <img src="{{ asset('product/brand_4.png') }}" alt="">
         </div>
     </div>
+
+    
 </div>
 <hr>
 <h1 class="text-center fs-4 fw-bold m-5">SẢN PHẨM</h1>
 <div class="container">
     <div class="row">
+       
         @foreach($products1 as $product)
         <div class="col-md-3">
             <div class="card border-0">

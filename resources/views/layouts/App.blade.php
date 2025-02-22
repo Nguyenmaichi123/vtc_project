@@ -17,7 +17,7 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     @include('layouts.header')
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss','resources/sass/auth.scss', 'resources/js/app.js'])
+
 </head>
 
 <body>
@@ -80,6 +80,13 @@
         <main class="py-4">
             @yield('content')
         </main>
+
+
+        @vite('resources/scss/App.scss')
+        @include('layouts.Footer')
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        @vite('resources/js/app.js')
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js" crossorigin="anonymous"></script>
     </div>
 </body>
 

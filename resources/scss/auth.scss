@@ -6,13 +6,11 @@ $primary-color: #40d2ff;
 $background-color: #f4f7f9;
 $card-bg: #fff;
 $border-radius: 10px;
-$google-color: #db4437;
-$facebook-color: #3b5998;
 
 // Background với hình ảnh thời trang
 .auth-container {
     height: 100vh;
-
+    display: flex;
     align-items: center;
     justify-content: center;
 }
@@ -67,45 +65,6 @@ $facebook-color: #3b5998;
     }
 }
 
-// Đăng nhập bằng Google & Facebook
-.social-login {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-
-    .btn-google, .btn-facebook {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 10px;
-        border-radius: 6px;
-        font-size: 14px;
-        font-weight: 500;
-        text-decoration: none;
-        color: white;
-
-        img {
-            width: 20px;
-            height: 20px;
-            margin-right: 10px;
-        }
-    }
-
-    .btn-google {
-        background: $google-color;
-        &:hover {
-            background: darken($google-color, 10%);
-        }
-    }
-
-    .btn-facebook {
-        background: $facebook-color;
-        &:hover {
-            background: darken($facebook-color, 10%);
-        }
-    }
-}
-
 // Gạch ngang "Hoặc"
 .divider {
     text-align: center;
@@ -131,22 +90,6 @@ $facebook-color: #3b5998;
     }
 }
 // Import Bootstrap
-@import "bootstrap/scss/bootstrap";
-
-// Biến màu sắc
-$primary-color: #4a90e2;
-$background-color: #f4f7f9;
-$card-bg: rgba(255, 255, 255, 0.85);
-$border-radius: 10px;
-
-// Hình nền
-.auth-container {
-    height: 100vh;
-    background: url('/vtc_project/public/storage/slider_1.png') no-repeat center center/cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
 // Card Register
 .register-card {
@@ -213,23 +156,6 @@ $border-radius: 10px;
         }
     }
 }
-// Import Bootstrap
-@import "bootstrap/scss/bootstrap";
-
-// Biến màu sắc
-$primary-color: #4a90e2;
-$background-color: #f4f7f9;
-$card-bg: rgba(255, 255, 255, 0.85);
-$border-radius: 10px;
-
-// Hình nền
-.auth-container {
-    height: 100vh;
-    background: url('/vtc_project/public/storage/slider_1.png') no-repeat center center/cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
 // Card Forgot Password
 .forgot-password-card {
@@ -243,7 +169,7 @@ $border-radius: 10px;
     .forgot-password-header {
         margin-bottom: 20px;
         text-align: center;
-        
+
         h2 {
             font-size: 24px;
             color: $primary-color;
@@ -293,21 +219,6 @@ $border-radius: 10px;
     }
 }
 // Import Bootstrap
-@import "bootstrap/scss/bootstrap";
-
-// Biến màu sắc
-$primary-color: #4a90e2;
-$background-color: #f4f7f9;
-$card-bg: #fff;
-$border-radius: 10px;
-
-.auth-container {
-    height: 100vh;
-    background: url('/images/backgroundlogin.png') no-repeat center center / cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
 .reset-password-card {
     width: 450px;

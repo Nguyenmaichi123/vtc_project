@@ -23,7 +23,7 @@ h1 {
 }
 .cart-link {
     text-decoration: none;
-    transition: opacity 0.3s ease-in-out;  
+    transition: opacity 0.3s ease-in-out;
 }
 
 .cart-link:hover {
