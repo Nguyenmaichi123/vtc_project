@@ -25,7 +25,7 @@
                             <li class="nav-item dropdown">
                                 <a class="dropdown-item" href="{{ route('products.bestSelling') }}">
                                     Sản phẩm nổi bật
-                                </a>
+                                </a>       
                             </li>
                             <li><a class="dropdown-item" href="{{ route('products.new') }}">Sản phẩm mới</a></li>
                         </ul>
@@ -129,6 +129,7 @@
 </div>
 
 <style>
+
     /* Ẩn tất cả dropdown mặc định */
     .navbar-nav .dropdown-menu {
         display: none;
@@ -176,4 +177,6 @@
         float: right;
         line-height: 1.5;
     }
+
+
 </style>
