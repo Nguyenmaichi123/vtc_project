@@ -43,9 +43,13 @@
 
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
-                <a href="#" class="nav-link d-flex align-items-center text-black opacity-75 hover-opacity-100 ms-3">
+                <a href="{{route('products.showcart')}}" class="nav-link d-flex align-items-center text-black opacity-75 hover-opacity-100 ms-3">
                     <i class="fa fa-shopping-cart fs-6 me-1"></i>
-                    <span class="small fw-light text-nowrap">GIỎ HÀNG (0)</span>
+                    <span class="small fw-light text-nowrap">GIỎ HÀNG (@if(session('cart') && count(session('cart')) > 0)
+                        {{ count(session('cart')) }}
+                    @else
+                        0
+                    @endif)</span>
 
                    
 
