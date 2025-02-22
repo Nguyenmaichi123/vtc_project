@@ -41,7 +41,7 @@
             <p>{{ $product->long_desc }}</p>
         </div>
         <div class="tab-content" id="tab2">
-            <img src="{{ asset('product/' . 'customSizeChartContent.jpg') }}" alt="">
+            <img src="{{ asset('product/' . 'customSizeChartContent.jpg') }}" alt="custom size">
         </div>
     </div>
 </div>

@@ -41,6 +41,7 @@ Route::get('/products/type/{type}', [ProductController::class, 'filterByType'])-
 
 Route::get('/product-detail/{id}', [ProductController::class, 'showDetail'])->name('products.detail');
 
+
 Route::get('/tin-tuc', [NewsController::class,'index'])->name('tintuc');
 Route::get('/lien-he', function () {
     return view('contact.index');

@@ -30,7 +30,7 @@
                         <option class="" value="">Chọn nhà sản xuất</option>
                         @if(isset($brands) && $brands->count() > 0)
                             @foreach ($brands as $brand)
-                                <option value="{{ $brand }}">{{ $brand }}</option>
+                            <option value="{{ $brand }}">{{ $brand }}</option>
                             @endforeach
                         @endif
                     </select>
@@ -41,7 +41,7 @@
                         <option value="">Chọn loại sản phẩm</option>
                         @if(isset($types) && $types->count() > 0)
                             @foreach ($types as $type)
-                                <option value="{{ $type }}">{{ $type }}</option>
+                            <option value="{{ $type }}">{{ $type }}</option>
                             @endforeach
                         @endif
                     </select>
@@ -158,18 +158,15 @@
 function filterByBrand() {
     const brand = document.getElementById('brand-select').value;
     window.location.href = "{{ url('/products/brand') }}/" + encodeURIComponent(brand);
-   
 }
 
 function filterByType() {
     const type = document.getElementById('type-select').value;
-    window.location.href = `/products/type/${type}`;
-    
+    window.location.href = `/products/type/${type}`; 
 }
 
 function filterById() {
     const brand = document.getElementById('brand-select').value;
     window.location.href = "{{ url('/products/brand') }}/" + encodeURIComponent(brand);
-   
 }
 </script>
