@@ -41,6 +41,7 @@
                         <option value="">Chọn loại sản phẩm</option>
                         @if(isset($types) && $types->count() > 0)
                             @foreach ($types as $type)
+
                             <option value="{{ $type }}">{{ $type }}</option>
                             @endforeach
                         @endif
@@ -64,9 +65,11 @@
                         <img src="{{ asset('product/' . $product->img) }}" alt="{{ $product->name }}">
                     </a>
                 </div>
+
                 <div class="product-name">
                     <p>{{ $product->name }}</p>
                 </div>
+
                 <div>
                     @if($product->category === 'on_sale')
                     <span class="product-price">{{ number_format($product->sale_price, 2) }}$</span>
@@ -96,8 +99,10 @@
 
 
     <!-- Phân trang -->
+
     <div class="d-flex justify-content-center align-items-center mt-5 ">
         {{ $products->links('pagination::bootstrap-4') }}
+
 
     </div>
 </div>
@@ -106,6 +111,7 @@
     /* Tuỳ chỉnh giao diện */
 .product-card {
     
+
       text-align: center;
       padding: 15px;
       border-radius: 5px;
@@ -144,6 +150,7 @@
       margin-left: 5px;
     }
 
+
     img {
         transition: opacity 0.5s ease;
         opacity: 1;
@@ -152,6 +159,7 @@
     img:hover {
         opacity: 0.7;
     }
+
 </style>
 
 <script>

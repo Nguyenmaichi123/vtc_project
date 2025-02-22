@@ -73,6 +73,7 @@
         <div class="col-md-6">
         <div class="banner-container mt-5">
         <img src="{{ asset('product/twobanner_1.png') }}" class="banner-image" alt="Handmade Image">
+
         <div class="banner-content">
             <h2>HANDMADE</h2>
             <hr style="width: 60px; border: 1px solid white; margin: 10px auto;">
