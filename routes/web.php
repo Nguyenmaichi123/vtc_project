@@ -39,7 +39,7 @@ Route::get('/',[HomeController::class,'home'])->name('home.index');
 Route::get('/gioithieu', function () {
     return view('intro.index');
 });
- 
+
 
 Route::get('/tin-tuc/{slug}', [NewsController::class, 'show'])->name('news.show1');
 
@@ -126,4 +126,8 @@ Route::get('/product-detail/{id}', [ProductController::class, 'showDetail'])->na
 Route::post('/contact2', [ContactController::class, 'store'])->name('contact.store');
 
 
+
+//session
+Route::post('/add-to-session', [ProductController::class, 'addToSession'])->name('add.to.session');
+Route::get('/product-cart', [ProductController::class, 'Showcart'])->name('products.showcart');
 

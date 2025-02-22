@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Product;
+use Illuminate\Support\Facades\Auth;
 class HomeController extends Controller
 {
     /**
@@ -24,7 +25,12 @@ class HomeController extends Controller
         
         $products2 = Product::whereBetween('id', [5, 8])->get();
 
+        $userId = Auth::id(); // Lấy user ID trực tiếp từ Auth
+
         
-        return view('home.index', compact('products1', 'products2'));
+
+        $value = session('cart', 'khongco');
+        
+        return view('home.index', compact('products1', 'products2','userId','value'));
     }
 }

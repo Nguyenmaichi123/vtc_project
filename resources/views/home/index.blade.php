@@ -36,7 +36,10 @@
     
 </div>
 <hr>
+
+
 <h1 class="text-center fs-4 fw-bold m-5">SẢN PHẨM</h1>
+
 <div class="container">
     <div class="row">
        
@@ -52,6 +55,9 @@
         </div>
         @endforeach
     </div>
+
+
+   
     
     <div class="row">
         @foreach($products2 as $product)
@@ -63,6 +69,7 @@
                 <div class="card-body text-center">
                     <p class="card-text">{{$product->name}}</p>
                     <h5 class="font-weight-bold">{{$product->price}}$</h5>
+                    <button class="add-to-cart" data-id="{{ $product->id }}">Thêm vào giỏ</button>
                 </div>
             </div>
         </div>
@@ -104,3 +111,28 @@
 
 </div>
 @endsection
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.add-to-cart').click(function() {
+            var productId = $(this).data('id'); // Lấy ID sản phẩm
+
+            $.ajax({
+                url: "{{ route('add.to.session') }}",
+                method: "POST",
+                data: {
+                    product_id: productId,
+                    _token: "{{ csrf_token() }}"
+                },
+                success: function(response) {
+                    alert("Sản phẩm đã được thêm vào giỏ hàng!");
+                    console.log(response.cart); // In danh sách ID sản phẩm trong session
+                }
+            });
+            window.location.reload();
+        });
+      
+    });
+</script>
