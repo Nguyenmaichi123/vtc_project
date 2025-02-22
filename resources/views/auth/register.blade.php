@@ -76,14 +76,14 @@
                 </div>
 
                 {{-- Social Login --}}
-                <div class="social-login">
+                <!-- <div class="social-login">
                     <a href="#" class="btn btn-danger w-100 mb-2">
                         <i class="bi bi-google"></i> Đăng ký với Google
                     </a>
                     <a href="#" class="btn btn-primary w-100">
                         <i class="bi bi-facebook"></i> Đăng ký với Facebook
                     </a>
-                </div>
+                </div> -->
 
                 {{-- Login Link --}}
                 <div class="text-center mt-3">

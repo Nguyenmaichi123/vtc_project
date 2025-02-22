@@ -59,10 +59,10 @@
                 </div>
 
                 {{-- Social Login --}}
-                <div class="social-login text-center mb-3">
+                <!-- <div class="social-login text-center mb-3">
                     <button type="button" class="btn btn-google"><img src="/images/google.png" alt="Google"> Đăng nhập với Google</button>
                     <button type="button" class="btn btn-facebook"><img src="/images/facebook.png" alt="Facebook"> Đăng nhập với Facebook</button>
-                </div>
+                </div> -->
 
 
                 {{-- Register Link --}}
