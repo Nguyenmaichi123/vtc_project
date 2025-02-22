@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\NewsController;
 
 
-use Illuminate\Http\Request;
+
 
 
 /*
@@ -29,7 +29,6 @@ Route::get('/gioithieu', function () {
     return view('intro.index');
 });
 
- quanganh
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 Route::get('/on-sale-product', [ProductController::class, 'onSale'])->name('products.onSale');
 Route::get('/best-selling-product', [ProductController::class, 'bestSelling'])->name('products.bestSelling');
@@ -66,4 +65,4 @@ Route::get('/search', function (Request $request) {
 
 // route mail contact
 Route::post('/contact2', [ContactController::class, 'store'])->name('contact.store');
- master
+
