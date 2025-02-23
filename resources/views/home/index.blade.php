@@ -50,6 +50,9 @@
                 <div class="card-body text-center">
                     <p class="card-text">{{$product->name}}</p>
                     <h5 class="font-weight-bold">{{$product->price}}$</h5>
+                    <button class="btn btn-primary btn-block px-3 border bg-dark text-light add-to-cart" data-id="{{ $product->id }}">
+                        <i class="bi bi-cart-plus"></i> Thêm vào giỏ hàng
+                    </button>
                 </div>
             </div>
         </div>
@@ -69,12 +72,14 @@
                 <div class="card-body text-center">
                     <p class="card-text">{{$product->name}}</p>
                     <h5 class="font-weight-bold">{{$product->price}}$</h5>
-                    <button class="add-to-cart" data-id="{{ $product->id }}">Thêm vào giỏ</button>
+                    <button class="btn btn-primary btn-block px-3 border bg-dark text-light add-to-cart" data-id="{{ $product->id }}">
+                        <i class="bi bi-cart-plus"></i> Thêm vào giỏ hàng
+                    </button>
                 </div>
             </div>
         </div>
         @endforeach
-        <a href="{{route('products.index')}}" class="text-center">
+        <a href="{{route('products.index')}}" class="text-center mt-5">
             <button class="btn-xem-them">XEM THÊM</button>
         </a>
     </div>
@@ -115,24 +120,46 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-    $(document).ready(function() {
-        $('.add-to-cart').click(function() {
-            var productId = $(this).data('id'); // Lấy ID sản phẩm
+   $(document).ready(function() {
+    $('.add-to-cart').click(function(event) {
+        event.preventDefault(); 
 
+        var productId = $(this).data('id'); 
+        var body = $("body");
+        for (var i = 0; i < 5; i++) {
+            body.animate({ marginLeft: "-10px" }, 50)
+                .animate({ marginLeft: "10px" }, 50);
+        }
+        body.animate({ marginLeft: "0px" }, 50);
+
+        $.ajax({
+            url: "{{ route('add.to.session') }}",
+            method: "POST",
+            data: {
+                product_id: productId,
+                _token: "{{ csrf_token() }}"
+            },
+            success: function(response) {
+               
+                console.log(response.cart); 
+                
+                
+                updateCart();
+                $("html, body").animate({ scrollTop: 0 }, "slow");
+                
+            }
+        });
+    });
+
+    function updateCart() {
             $.ajax({
-                url: "{{ route('add.to.session') }}",
-                method: "POST",
-                data: {
-                    product_id: productId,
-                    _token: "{{ csrf_token() }}"
-                },
+                url: "{{ route('cart.get') }}", 
+                method: "GET",
                 success: function(response) {
-                    alert("Sản phẩm đã được thêm vào giỏ hàng!");
-                    console.log(response.cart); // In danh sách ID sản phẩm trong session
+                    $("#cart-count").text(response.totalQuantity); 
                 }
             });
-            window.location.reload();
-        });
-      
-    });
+        }
+});
+
 </script>

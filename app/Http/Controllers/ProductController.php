@@ -106,36 +106,34 @@ class ProductController extends Controller {
 
 
 
-    //session
     public function addToSession(Request $request)
-    {
-        $productId = $request->input('product_id');
+{
+    $productId = $request->input('product_id');
 
-        // Lấy danh sách sản phẩm từ session hoặc tạo mảng mới nếu chưa có
-        $products = session()->get('cart', []);
+    
+    $cart = session()->get('cart', []);
 
-        // Thêm ID sản phẩm vào session (nếu chưa có)
-        if (!in_array($productId, $products)) {
-            $products[] = $productId;
-        }
-
-        // Lưu lại session
-        session()->put('cart', $products);
-
-        return response()->json(['success' => true, 'cart' => $products]);
+    
+    if (isset($cart[$productId])) {
+       
+        $cart[$productId]['quantity'] += 1;
+    } else {
         
+        $cart[$productId] = [
+            'product_id' => $productId,
+            'quantity' => 1,
+        ];
     }
 
-    public function Showcart()
-    {
-        $productIds = session('cart');
+    // Lưu lại session
+    session()->put('cart', $cart);
 
-        // Lấy tất cả các sản phẩm có id trong mảng
-        $products = Product::whereIn('id', $productIds)->get();
-        session()->forget('cart');
-        return view('products.productscard', compact('products'));
-        
-    }
+    return response()->json(['success' => true, 'cart' => $cart]);
+}
+
+
+
+
 
 }
 
