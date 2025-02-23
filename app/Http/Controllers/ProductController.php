@@ -111,26 +111,34 @@ class ProductController extends Controller {
     $productId = $request->input('product_id');
 
     
+    $product = Product::find($productId);
+    if (!$product) {
+        return response()->json(['success' => false, 'message' => 'Sản phẩm không tồn tại']);
+    }
+
+   
     $cart = session()->get('cart', []);
 
-    
     if (isset($cart[$productId])) {
-       
         $cart[$productId]['quantity'] += 1;
+        $cart[$productId]['total_price'] = $cart[$productId]['quantity'] * $cart[$productId]['price'];
     } else {
-        
+       
         $cart[$productId] = [
             'product_id' => $productId,
-            'quantity' => 1,
+            'name' => $product->name,
+            'price' => $product->price, 
+            'quantity' => 1, 
+            'total_price' => $product->price, 
+            'img' => $product->img
         ];
     }
 
-    // Lưu lại session
+    // Lưu giỏ hàng vào session
     session()->put('cart', $cart);
 
     return response()->json(['success' => true, 'cart' => $cart]);
 }
-
 
 
 

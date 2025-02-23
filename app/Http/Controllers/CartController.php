@@ -33,6 +33,9 @@ class CartController extends Controller
             $cart[$id]['quantity'] = max(1, $request->input('quantity', 1));
         }
 
+
+        $cart[$id]['total_price'] = $cart[$id]['quantity'] * $cart[$id]['price'];
+
         session()->put('cart', $cart);
     }
 
@@ -50,12 +53,6 @@ class CartController extends Controller
         return redirect()->route('cart.show');
     }
 
-    public function checkout()
-    {
-        return view('checkout');
-    }
- 
-    
 
     public function getCart()
 {

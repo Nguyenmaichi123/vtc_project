@@ -13,6 +13,7 @@
 
     <!-- Load SCSS -->
     @vite('resources/scss/App.scss')
+    
 </head>
 
 <body>

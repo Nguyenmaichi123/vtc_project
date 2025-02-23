@@ -1,6 +1,3 @@
-@extends('layouts.app')
-
-@section('content')
 
 
 
@@ -10,8 +7,11 @@
 
 
 
+@extends('layouts.app')
+
+@section('content')
 <div class="container">
-   <button id="test3" class="fa fa-music fs-4 text-primary" style="cursor: pointer;"></button>
+    <button id="test3" class="fa fa-music fs-4 text-primary" style="cursor: pointer;"></button>
     <h4 class="mt-4">Giỏ hàng</h4>
     <table class="table table-bordered mt-3">
         <thead>
@@ -42,10 +42,9 @@
                             @csrf
                             @method('PUT')
                             <div class="input-group" style="width: 120px;">
-                                <button type="submit" name="decrease" value="1" class="btn btn-outline-secondary">-</button>
-                                <span class="form-control text-center bg-light">{{ $product->quantity }}</span>
-                                <button type="submit" name="increase" value="1" class="btn btn-outline-secondary">+</button>
-                              
+                                <button type="submit" name="quantity" value="{{ $product->quantity - 1 }}" class="btn btn-outline-secondary">-</button>
+                                <input type="text" name="quantity" value="{{ $product->quantity }}" class="form-control text-center">
+                                <button type="submit" name="quantity" value="{{ $product->quantity + 1 }}" class="btn btn-outline-secondary">+</button>
                             </div>
                         </form>
                     </td>
@@ -78,33 +77,7 @@
 @endsection
 
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
- $(document).on("click", "#test3", function() {
-    var music = document.getElementById("background-music");
-    var body = $("body");
 
-    for (var i = 0; i < 5; i++) {
-            body.animate({ marginLeft: "-10px" }, 50)
-                .animate({ marginLeft: "10px" }, 50);
-        }
-        body.animate({ marginLeft: "0px" }, 50);
-    
-    if (music.paused) {
-        music.play().then(() => {
-            $(this).addClass("text-danger"); 
-            console.log("Nhạc đang phát...");
-        }).catch(error => {
-            console.error("Trình duyệt chặn phát nhạc:", error);
-        });
-    } else {
-        music.pause();
-        $(this).removeClass("text-danger"); 
-        console.log("Nhạc đã tắt.");
-    }
-});
 
-    </script>
-    
     
     

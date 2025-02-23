@@ -4,6 +4,7 @@
 @section('content')
 
 <div class="container mt-5">
+
     
     <img src="{{ asset('product/slider_1.png') }}" alt="" width="100%">
    <hr class="mt-5">
@@ -118,48 +119,5 @@
 @endsection
 
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-   $(document).ready(function() {
-    $('.add-to-cart').click(function(event) {
-        event.preventDefault(); 
 
-        var productId = $(this).data('id'); 
-        var body = $("body");
-        for (var i = 0; i < 5; i++) {
-            body.animate({ marginLeft: "-10px" }, 50)
-                .animate({ marginLeft: "10px" }, 50);
-        }
-        body.animate({ marginLeft: "0px" }, 50);
-
-        $.ajax({
-            url: "{{ route('add.to.session') }}",
-            method: "POST",
-            data: {
-                product_id: productId,
-                _token: "{{ csrf_token() }}"
-            },
-            success: function(response) {
-               
-                console.log(response.cart); 
-                
-                
-                updateCart();
-                $("html, body").animate({ scrollTop: 0 }, "slow");
-                
-            }
-        });
-    });
-
-    function updateCart() {
-            $.ajax({
-                url: "{{ route('cart.get') }}", 
-                method: "GET",
-                success: function(response) {
-                    $("#cart-count").text(response.totalQuantity); 
-                }
-            });
-        }
-});
-
-</script>
+ 

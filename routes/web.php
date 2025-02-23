@@ -9,7 +9,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\CartController;
-
+use App\Http\Controllers\CheckoutController;
 
 
 
@@ -134,5 +134,10 @@ Route::post('/add-to-session', [ProductController::class, 'addToSession'])->name
 Route::get('/cart', [CartController::class, 'show'])->name('cart.show');
 Route::put('/cart/update/{id}', [CartController::class, 'update'])->name('cart.update');
 Route::delete('/cart/remove/{id}', [CartController::class, 'remove'])->name('cart.remove');
-Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout');
 Route::get('/cart/get', [CartController::class, 'getCart'])->name('cart.get');
+
+
+//checkout
+Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
+Route::post('/checkout', [CheckoutController::class, 'placeOrder'])->name('checkout.placeOrder');
+Route::get('/checkoutcomplete', [CheckoutController::class, 'checkoutcomplete'])->name('checkoutcomplete');

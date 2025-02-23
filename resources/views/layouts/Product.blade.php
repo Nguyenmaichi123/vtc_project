@@ -83,7 +83,7 @@
                 </div>
                 <!-- Thêm nút "Thêm vào giỏ hàng" -->
                 <div class="mt-2">
-                    <button class="btn btn-primary btn-block px-3 border bg-dark text-light">
+                    <button class="btn btn-primary btn-block px-3 border bg-dark text-light add-to-cart" data-id="{{ $product->id }}">
                         <i class="bi bi-cart-plus"></i> Thêm vào giỏ hàng
                     </button>
                 </div>
