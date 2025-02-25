@@ -10,6 +10,7 @@ class ProductController extends Controller {
         $products = Product::paginate(8);
         $brands = Product::distinct()->pluck('brand');
         $types = Product::distinct()->pluck('type');
+
         return view('products.index', compact('products','brands','types'));
     }
     // khuyen mai
@@ -18,7 +19,7 @@ class ProductController extends Controller {
         $brands = Product::distinct()->pluck('brand');
         $types = Product::distinct()->pluck('type');
 
-        return view('products.onSale', compact('products', 'brands', 'types'));
+        return view('products.onSale', compact('products','brands','types'));
     }
     // noi bat
     public function bestSelling() {
@@ -26,7 +27,7 @@ class ProductController extends Controller {
         $brands = Product::distinct()->pluck('brand');
         $types = Product::distinct()->pluck('type');
 
-        return view('products.bestSelling', compact('products', 'brands', 'types'));
+        return view('products.bestSelling', compact('products','brands','types'));
     }
     // moi
     public function new() {
@@ -34,13 +35,12 @@ class ProductController extends Controller {
         $brands = Product::distinct()->pluck('brand');
         $types = Product::distinct()->pluck('type');
 
-        return view('products.new', compact('products', 'brands', 'types'));
+        return view('products.new', compact('products','brands','types'));
     }
 
     public function search(Request $request) {
         $searchTerm = '%' . $request->input('search') . '%';
         $products = Product::where('name', 'LIKE', $searchTerm)->paginate(8);
-
         $message = $products->isEmpty() ? 'Không có sản phẩm nào tìm thấy.' : null;
         $brands = Product::distinct()->pluck('brand');
         $types = Product::distinct()->pluck('type');
@@ -53,7 +53,7 @@ class ProductController extends Controller {
         $brands = Product::distinct()->pluck('brand');
         $types = Product::distinct()->pluck('type');
 
-        return view('products.index', compact('products','brands','types'));      
+        return view('products.index', compact('products','brands','types'));
     }
    
     public function filterByType($type) {
@@ -69,6 +69,44 @@ class ProductController extends Controller {
     
         return view('products.ProductDetail', compact('products'));
     }
+
+
+    public function addToSession(Request $request) {
+        $productId = $request->input('product_id');
+
+        
+        $product = Product::find($productId);
+        if (!$product) {
+            return response()->json(['success' => false, 'message' => 'Sản phẩm không tồn tại']);
+        }
+
+    
+        $cart = session()->get('cart', []);
+
+        if (isset($cart[$productId])) {
+            $cart[$productId]['quantity'] += 1;
+            $cart[$productId]['total_price'] = $cart[$productId]['quantity'] * $cart[$productId]['price'];
+        } else {
+        
+            $cart[$productId] = [
+                'product_id' => $productId,
+                'name' => $product->name,
+                'price' => $product->price, 
+                'quantity' => 1, 
+                'total_price' => $product->price, 
+                'img' => $product->img
+            ];
+        }
+
+        // Lưu giỏ hàng vào session
+        session()->put('cart', $cart);
+
+        return response()->json(['success' => true, 'cart' => $cart]);
+    }
+
+
+
+
 }
 
 ?>

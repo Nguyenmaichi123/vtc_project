@@ -64,23 +64,25 @@
                         <img src="{{ asset('product/' . $product->img) }}" alt="{{ $product->name }}">
                     </a>
                 </div>
+
                 <div class="product-name">
                     <p>{{ $product->name }}</p>
                 </div>
+
                 <div>
                     @if($product->category === 'on_sale')
-                    <span class="product-price">{{ number_format($product->sale_price, 2) }}$</span>
+                    <span class="product-price">{{ number_format($product->sale_price, 0) }} VNĐ</span>
                     @endif
 
                     @if($product->category !== 'on_sale')
-                    <span class="product-original-price" style="text-decoration: none;">{{ number_format($product->price, 2) }}$</span>
+                    <span class="product-original-price" style="text-decoration: none;">{{ number_format($product->price, 3) }} VNĐ</span>
                     @else
                     <span class="product-original-price">{{ number_format($product->price, 2) }}$</span>
                     @endif
                 </div>
                 <!-- Thêm nút "Thêm vào giỏ hàng" -->
                 <div class="mt-2">
-                    <button class="btn btn-primary btn-block px-3 border bg-dark text-light">
+                    <button class="btn btn-primary btn-block px-3 border bg-dark text-light add-to-cart" data-id="{{ $product->id }}">
                         <i class="bi bi-cart-plus"></i> Thêm vào giỏ hàng
                     </button>
                 </div>
@@ -96,8 +98,10 @@
 
 
     <!-- Phân trang -->
+
     <div class="d-flex justify-content-center align-items-center mt-5 ">
         {{ $products->links('pagination::bootstrap-4') }}
+
 
     </div>
 </div>
@@ -106,6 +110,7 @@
     /* Tuỳ chỉnh giao diện */
 .product-card {
     
+
       text-align: center;
       padding: 15px;
       border-radius: 5px;
@@ -144,6 +149,7 @@
       margin-left: 5px;
     }
 
+
     img {
         transition: opacity 0.5s ease;
         opacity: 1;
@@ -152,6 +158,7 @@
     img:hover {
         opacity: 0.7;
     }
+
 </style>
 
 <script>

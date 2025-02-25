@@ -93,8 +93,8 @@ Kính Ray-Ban chính là một biểu tượng thời trang và khẳng định 
 
 New Era là thương hiệu thời trang chuyên sản xuất các sản phẩm có liên quan đến thế giới bóng chày. New Era không những cho ra đời các sản phẩm có chất lượng cao mà còn luôn bắt kịp các xu hướng thời trang trong nước và quốc tế. Đây sẽ là sản phẩm tuyệt vời để đồng hành cùng bạn trong bất kỳ dịp đặc biệt nào, không chỉ là phụ kiện tô điểm bên ngoài mà còn giúp bạn thể hiện phong cách thời trang tinh tế của người sử dụng. Hãy khám phá thế giới thời trang ấn tượng và khác biệt của New Era.
 ',
-                'price' => 20,
-                'sale_price' => 15,
+                'price' => 240.000,
+                'sale_price' => 200.000,
                 'type' => 'hat',
                 'category' => 'on_sale, best_selling',
                 'img' => 'hat-new-era.png',

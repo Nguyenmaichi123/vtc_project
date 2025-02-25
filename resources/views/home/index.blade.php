@@ -4,6 +4,7 @@
 @section('content')
 
 <div class="container mt-5">
+
     
     <img src="{{ asset('product/slider_1.png') }}" alt="" width="100%">
    <hr class="mt-5">
@@ -32,11 +33,17 @@
             <img src="{{ asset('product/brand_4.png') }}" alt="">
         </div>
     </div>
+
+    
 </div>
 <hr>
+
+
 <h1 class="text-center fs-4 fw-bold m-5">SẢN PHẨM</h1>
+
 <div class="container">
     <div class="row">
+       
         @foreach($products1 as $product)
         <div class="col-md-3">
             <div class="card border-0">
@@ -44,11 +51,17 @@
                 <div class="card-body text-center">
                     <p class="card-text">{{$product->name}}</p>
                     <h5 class="font-weight-bold">{{$product->price}}$</h5>
+                    <button class="btn btn-primary btn-block px-3 border bg-dark text-light add-to-cart" data-id="{{ $product->id }}">
+                        <i class="bi bi-cart-plus"></i> Thêm vào giỏ hàng
+                    </button>
                 </div>
             </div>
         </div>
         @endforeach
     </div>
+
+
+   
     
     <div class="row">
         @foreach($products2 as $product)
@@ -60,11 +73,14 @@
                 <div class="card-body text-center">
                     <p class="card-text">{{$product->name}}</p>
                     <h5 class="font-weight-bold">{{$product->price}}$</h5>
+                    <button class="btn btn-primary btn-block px-3 border bg-dark text-light add-to-cart" data-id="{{ $product->id }}">
+                        <i class="bi bi-cart-plus"></i> Thêm vào giỏ hàng
+                    </button>
                 </div>
             </div>
         </div>
         @endforeach
-        <a href="{{route('products.index')}}" class="text-center">
+        <a href="{{route('products.index')}}" class="text-center mt-5">
             <button class="btn-xem-them">XEM THÊM</button>
         </a>
     </div>
@@ -73,6 +89,7 @@
         <div class="col-md-6">
         <div class="banner-container mt-5">
         <img src="{{ asset('product/twobanner_1.png') }}" class="banner-image" alt="Handmade Image">
+
         <div class="banner-content">
             <h2>HANDMADE</h2>
             <hr style="width: 60px; border: 1px solid white; margin: 10px auto;">
@@ -100,3 +117,7 @@
 
 </div>
 @endsection
+
+
+
+ 
