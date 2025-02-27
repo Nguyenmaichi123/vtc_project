@@ -28,7 +28,7 @@
                 <label for="quantity">Số lượng:</label>
                 <input type="number" id="quantity" name="quantity" min="1" value="1">
             </div>
-            <button class="add-to-cart">THÊM VÀO GIỎ HÀNG</button>
+            <button class="add-to-cart"data-id={{ $product->id }}>THÊM VÀO GIỎ HÀNG</button>
         </div>
     </div>
     <div class="body">

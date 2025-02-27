@@ -8,6 +8,8 @@ use App\Models\Order;
 use App\Models\Product;
 use App\Models\OrderItem;
 use Illuminate\Support\Facades\Auth;
+use App\Mail\OrderConfirmationMail;
+use Illuminate\Support\Facades\Mail;
 
 
 
@@ -49,15 +51,24 @@ class CheckoutController extends Controller
             'payment_method' => 'required'
         ]);
 
+        $email = $request->email;
+        $name = $request->name;
+        $phone = $request->phone;
+        $address = $request->address;
+        $city = $request->city;
+        $payment_method = $request->payment_method;
+        $products = session('cart');
+        
+
         // Lưu đơn hàng
         $order = Order::create([
             'user_id' => Auth::id(), 
-            'email' => $request->email,
-            'name' => $request->name,
-            'phone' => $request->phone,
-            'address' => $request->address,
-            'city' => $request->city,
-            'payment_method' => $request->payment_method,
+            'email' => $email,
+            'name' => $name,
+            'phone' => $phone,
+            'address' => $address,
+            'city' => $city,
+            'payment_method' => $payment_method,
             'total_price' => $total,
             'status' => 'pending'
         ]);
@@ -72,14 +83,12 @@ class CheckoutController extends Controller
             ]);
         }
 
+        Mail::to($order->email)->send(new OrderConfirmationMail($order, $products));
         // Xóa giỏ hàng sau khi đặt hàng
         session()->forget('cart');
 
-        return redirect()->route('checkoutcomplete');
+        return view('checkoutcomplete',compact('email','name','phone','address','city','payment_method','total','products'));
     }
 
-    public function checkoutcomplete()
-    {
-        return redirect()->route('home');
-    }
+    
 }

@@ -141,4 +141,3 @@ Route::get('/cart/get', [CartController::class, 'getCart'])->name('cart.get');
 //checkout
 Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
 Route::post('/checkout', [CheckoutController::class, 'placeOrder'])->name('checkout.placeOrder');
-Route::get('/checkoutcomplete', [CheckoutController::class, 'checkoutcomplete'])->name('checkoutcomplete');
