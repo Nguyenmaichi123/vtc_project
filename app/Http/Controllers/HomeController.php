@@ -25,12 +25,12 @@ class HomeController extends Controller
         
         $products2 = Product::whereBetween('id', [5, 8])->get();
 
-        $userId = Auth::id(); // Lấy user ID trực tiếp từ Auth
+    
 
         
 
-        $value = session('cart', 'khongco');
+     
         
-        return view('home.index', compact('products1', 'products2','userId','value'));
+        return view('home.index', compact('products1', 'products2'));
     }
 }

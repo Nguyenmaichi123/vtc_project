@@ -42,19 +42,14 @@
             <div class="d-flex align-items-center">
 
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-
-                <a href="{{route('products.showcart')}}" class="nav-link d-flex align-items-center text-black opacity-75 hover-opacity-100 ms-3">
-                    <i class="fa fa-shopping-cart fs-6 me-1"></i>
-                    <span class="small fw-light text-nowrap">GIỎ HÀNG (@if(session('cart') && count(session('cart')) > 0)
-                        {{ count(session('cart')) }}
-                    @else
+                <a href="{{ route('cart.show') }}" class="nav-link d-flex align-items-center justify-contents-center  position-relative">
+                    <i class="fa fa-shopping-cart fs-5  me-2"></i> 
+                    <span class="cart-text " >Giỏ hàng</span>
+                    <span id="cart-count" class="badge bg-danger position-absolute top-0 start-100 translate-middle rounded-pill">
                         0
-                    @endif)</span>
-
-                   
-
-                    </a>
-
+                    </span>
+                </a>
+                
 
 
                     <div class="container">
@@ -182,6 +177,18 @@
         float: right;
         line-height: 1.5;
     }
+
+    #cart-count {
+    font-size: 10px;
+    padding: 5px 8px;
+    min-width: 22px;
+    text-align: center;
+    color: white;
+    top: 5px;
+    right: 5px;
+
+    
+}
 
 
 </style>

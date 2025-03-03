@@ -11,7 +11,8 @@ return new class extends Migration {
      *
      * @return void
      */
-    public function up() {
+    public function up()
+    {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('name');
@@ -20,11 +21,14 @@ return new class extends Migration {
             $table->decimal('price', 10, 2);
             $table->decimal('sale_price');
             $table->string('type');
-            $table->string('category');
+            $table->string('category'); // ✅ Giữ category dạng string
+            $table->unsignedBigInteger('category_id')->nullable(); // ✅ Thêm category_id nhưng KHÔNG có khóa ngoại
             $table->string('img')->nullable();
             $table->text('short_desc')->nullable();
             $table->timestamps();
         });
+    
+
 
         DB::table('products')->insert([
             [

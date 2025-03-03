@@ -4,6 +4,7 @@
 @section('content')
 
 <div class="container mt-5">
+
     
     <img src="{{ asset('product/slider_1.png') }}" alt="" width="100%">
    <hr class="mt-5">
@@ -50,6 +51,9 @@
                 <div class="card-body text-center">
                     <p class="card-text">{{$product->name}}</p>
                     <h5 class="font-weight-bold">{{$product->price}}$</h5>
+                    <button class="btn btn-primary btn-block px-3 border bg-dark text-light add-to-cart" data-id="{{ $product->id }}">
+                        <i class="bi bi-cart-plus"></i> Thêm vào giỏ hàng
+                    </button>
                 </div>
             </div>
         </div>
@@ -69,12 +73,14 @@
                 <div class="card-body text-center">
                     <p class="card-text">{{$product->name}}</p>
                     <h5 class="font-weight-bold">{{$product->price}}$</h5>
-                    <button class="add-to-cart" data-id="{{ $product->id }}">Thêm vào giỏ</button>
+                    <button class="btn btn-primary btn-block px-3 border bg-dark text-light add-to-cart" data-id="{{ $product->id }}">
+                        <i class="bi bi-cart-plus"></i> Thêm vào giỏ hàng
+                    </button>
                 </div>
             </div>
         </div>
         @endforeach
-        <a href="{{route('products.index')}}" class="text-center">
+        <a href="{{route('products.index')}}" class="text-center mt-5">
             <button class="btn-xem-them">XEM THÊM</button>
         </a>
     </div>
@@ -113,26 +119,5 @@
 @endsection
 
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-    $(document).ready(function() {
-        $('.add-to-cart').click(function() {
-            var productId = $(this).data('id'); // Lấy ID sản phẩm
 
-            $.ajax({
-                url: "{{ route('add.to.session') }}",
-                method: "POST",
-                data: {
-                    product_id: productId,
-                    _token: "{{ csrf_token() }}"
-                },
-                success: function(response) {
-                    alert("Sản phẩm đã được thêm vào giỏ hàng!");
-                    console.log(response.cart); // In danh sách ID sản phẩm trong session
-                }
-            });
-            window.location.reload();
-        });
-      
-    });
-</script>
+ 

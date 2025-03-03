@@ -106,36 +106,42 @@ class ProductController extends Controller {
 
 
 
-    //session
     public function addToSession(Request $request)
-    {
-        $productId = $request->input('product_id');
+{
+    $productId = $request->input('product_id');
 
-        // Lấy danh sách sản phẩm từ session hoặc tạo mảng mới nếu chưa có
-        $products = session()->get('cart', []);
-
-        // Thêm ID sản phẩm vào session (nếu chưa có)
-        if (!in_array($productId, $products)) {
-            $products[] = $productId;
-        }
-
-        // Lưu lại session
-        session()->put('cart', $products);
-
-        return response()->json(['success' => true, 'cart' => $products]);
-        
+    
+    $product = Product::find($productId);
+    if (!$product) {
+        return response()->json(['success' => false, 'message' => 'Sản phẩm không tồn tại']);
     }
 
-    public function Showcart()
-    {
-        $productIds = session('cart');
+   
+    $cart = session()->get('cart', []);
 
-        // Lấy tất cả các sản phẩm có id trong mảng
-        $products = Product::whereIn('id', $productIds)->get();
-        session()->forget('cart');
-        return view('products.productscard', compact('products'));
-        
+    if (isset($cart[$productId])) {
+        $cart[$productId]['quantity'] += 1;
+        $cart[$productId]['total_price'] = $cart[$productId]['quantity'] * $cart[$productId]['price'];
+    } else {
+       
+        $cart[$productId] = [
+            'product_id' => $productId,
+            'name' => $product->name,
+            'price' => $product->price, 
+            'quantity' => 1, 
+            'total_price' => $product->price, 
+            'img' => $product->img
+        ];
     }
+
+    // Lưu giỏ hàng vào session
+    session()->put('cart', $cart);
+
+    return response()->json(['success' => true, 'cart' => $cart]);
+}
+
+
+
 
 }
 
