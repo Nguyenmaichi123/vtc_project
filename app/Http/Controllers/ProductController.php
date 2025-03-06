@@ -15,15 +15,15 @@ class ProductController extends Controller {
     }
     // khuyen mai
     public function onSale() {
-        $products = Product::where('category', 'on_sale')->paginate(8);
+        $products = Product::where('category', 'LIKE', '%on_sale%')->paginate(8);
         $brands = Product::distinct()->pluck('brand');
         $types = Product::distinct()->pluck('type');
 
-        return view('products.onSale', compact('products','brands','types'));
+        return view('products.onSale', compact('products', 'brands', 'types'));
     }
     // noi bat
     public function bestSelling() {
-        $products = Product::where('category', 'best_selling')->paginate(8);
+        $products = Product::where('category', 'LIKE', '%best_selling%')->paginate(8);
         $brands = Product::distinct()->pluck('brand');
         $types = Product::distinct()->pluck('type');
 
@@ -31,7 +31,7 @@ class ProductController extends Controller {
     }
     // moi
     public function new() {
-        $products = Product::where('category', 'new')->paginate(8);
+        $products = Product::where('category', 'LIKE', '%new%')->paginate(8);
         $brands = Product::distinct()->pluck('brand');
         $types = Product::distinct()->pluck('type');
 

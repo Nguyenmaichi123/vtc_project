@@ -48,7 +48,7 @@ return new class extends Migration {
                 'long_desc' => 'Vẻ năng động mạnh mẽ của nam giới có phần không nhỏ nhờ những chiếc quần jean. Với xu hướng rộng khắp của hàng loạt loại jean như jean rách, jean ống đứng, jean ống côn… phái mạnh sẽ chọn loại quần nào để thêm nam tính?
 Các chàng trai cũng đừng quên chọn cho mình những chiếc quần jeans hợp mốt. Đặc biệt ngày nay, quần jeans của nam giới không chỉ có ống đứng dạng to và rộng, chúng đã được “cải tiến” thành những chiếc quần ống nhỏ, ống loe hợp hơn nhưng vẫn tạo sự thoải mái và thể hiện được cá tính mạnh mẽ. Quần jean nam là một item quen thuộc của thời trang nam chúng không hề chỉ là những kiểu dáng đơn giản như mọi người vẫn thường nghĩ. Quần jean nam ngày càng được thiết kế đa dạng hơn với nhiều kiểu dáng để tạo ra nhiều phong cách thời trang cho nam giới. Bạn có thể dễ dàng tìm thấy nhiều kiểu dáng quần jean nam trên thị trường hiện nay như: Jeans ống đứng, Jeans skinny, Jeans ống rộng, jeans có túi hậu, Jeans ống loe, Jean rách, Jeans cạp trễ, Jean mài…
 Quần jean nam thường được may từ chất liệu jean mềm dễ chịu và thông thoáng tạo cảm giác thoải mái khi mặc và dễ dàng cho mọi hoạt động. Các chàng có thể phối cùng nhiều kiểu áo thun, áo pull khỏe khoắn hoặc sơ mi thanh lịch, để có một diện mạo hoàn hảo nhất.',
-                'price' => 40,
+                'price' => 880,
                 'sale_price' => 0,
                 'type' => 'pants',
                 'category' => 'best_selling',
@@ -68,37 +68,12 @@ Quần jean nam thường được may từ chất liệu jean mềm dễ chịu
 - Đầu gọng kính uốn cong đính tên thương hiệu
 - Chống tia UV 100%
 Kính Ray-Ban chính là một biểu tượng thời trang và khẳng định phong cách sống với lịch sử ra đời từ hơn 70 năm trước. Từ sản phẩm mắt kính Aviator đến kính Wayfarer và nhiều loại kính huyền thoại khác, Ray-Ban đã tạo nên một trào lưu văn hóa lan tỏa mạnh mẽ đến nhiều tầng lớp khác nhau, dù là Hollywood hay trong quân đội Mỹ. Theo đuổi thông điệp “Never hide” - “Không bao giờ che giấu”, Ray-Ban đã và đang là sản phẩm không thể thiếu dành cho những ai yêu thích sự chân thực, muốn thể hiện cái tôi độc lập và khác biệt của mình.',
-                'price' => 100,
-                'sale_price' => 35,
+                'price' => 1640,
+                'sale_price' => 1500,
                 'type' => 'glasses',
                 'category' => 'on_sale, best_selling',
                 'img' => 'ray-ban.png',
                 'short_desc' => 'Với cảm hứng từ thiết kế...',
-                'created_at' => now(),
-                'updated_at' => now()
-            ],
-
-            [
-                'name' => 'Mũ lưỡi trai New Era',
-                'brand' => 'New Era',
-                'long_desc' => 'Mũ lưỡi trai màu xanh đậm có thêu chữ NY của thương hiệu New Era với phong cách tinh nghịch và cá tính, là lựa chọn hoàn hảo cho những dịp dạo phố cùng bạn bè.
-
-- Chất liệu vải polyester pha cotton
-
-- May viền chỉ nổi
-
-- Phía sau khoét cách điệu, phối khóa kim loại để thay đổi độ rộng vòng mũ
-
-- 78% Polyester, 22% Cotton
-
-New Era là thương hiệu thời trang chuyên sản xuất các sản phẩm có liên quan đến thế giới bóng chày. New Era không những cho ra đời các sản phẩm có chất lượng cao mà còn luôn bắt kịp các xu hướng thời trang trong nước và quốc tế. Đây sẽ là sản phẩm tuyệt vời để đồng hành cùng bạn trong bất kỳ dịp đặc biệt nào, không chỉ là phụ kiện tô điểm bên ngoài mà còn giúp bạn thể hiện phong cách thời trang tinh tế của người sử dụng. Hãy khám phá thế giới thời trang ấn tượng và khác biệt của New Era.
-',
-                'price' => 240.000,
-                'sale_price' => 200.000,
-                'type' => 'hat',
-                'category' => 'on_sale, best_selling',
-                'img' => 'hat-new-era.png',
-                'short_desc' => 'Mũ lưỡi trai màu xanh đậm có thêu chữ NY của thương hiệu New Era với phong cách tinh nghịch và cá tính, là lựa chọn hoàn hảo cho những dịp dạo phố cùng bạn bè. - Chất liệu vải polyester...',
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -142,8 +117,8 @@ Asos là thương hiệu thời trang bình dân nổi tiếng của Anh đượ
 
 Trench coat được mặc bên ngoài bộ suit không làm mất đi tính trang trọng, lịch lãm của set đồ mà còn giúp cho người mặc trông thật tuyệt vời.Với kiểu cổ cao, được thiết kế chi tiết lông thú ở cổ, chiếc trench coat này đem đến vẻ ngoài đậm chất cổ điển, phù hợp với những ai ưa thích phong cách retro.Chiếc áo phao dày dặn bên trong kết hợp cùng trench coat bên ngoài gợi nên hình ảnh một quý ông vô cùng lịch lãm.
 Chiếc áo sweater bên trong trench coat tạo nên vẻ ngoài mang một chút năng động, cá tính và thời trang hiện đại. Điểm nhấn của chiếc quần chino đầy trẻ trung kết hợp cùng áo blazer và trench coat thành một set đồ mang đậm vẻ phong trần, mới mẻ cho người mặc. Chiếc quần dạ cũng không phải là ý kiến tồi khi kết hợp với trench coat, vẻ ngoài vừa cổ điển vừa hiện đại của các chàng sẽ được phô diễn một cách tinh tế. Với phụ kiện là một chiếc ô (dù) đen, set đồ mang lại sự nhẹ nhàng của mùa thu, giúp chàng thoải mái cùng các nàng dạo bước trong những chuyến đi chơi đầy thú vị. Kiểu quần jean khi kết hợp với trench coat là một sự phá cách hoàn toàn mới đem lại sự năng động và sức lôi cuốn cho chàng trai.',
-                'price' => 50,
-                'sale_price' => 35,
+                'price' => 1300,
+                'sale_price' => 1000,
                 'type' => 'jacket',
                 'category' => 'on_sale, best_selling, new',
                 'img' => 'ao-khoac-bellfield.png',
@@ -185,8 +160,8 @@ Thương hiệu Tommy Hilfiger do nhà thiết kế cùng tên sáng lập năm 
 Các thiết kế của hãng rất đa dạng, từ những mẫu thiết kế cơ bản, cổ điển, đến thanh lịch và năng động.
 
 Với ba màu sắc truyền thống là đỏ, trắng, và xanh dương đậm, Tommy Hilfiger đã trở thành một biểu tượng thương hiệu thời trang của Mỹ',
-                'price' => 50,
-                'sale_price' => 0,
+                'price' => 1700,
+                'sale_price' => 1500,
                 'type' => 'shirt',
                 'category' => 'on_sale, new',
                 'img' => 'ao_somi_tim_tommy_hilfiger.jpg',
@@ -198,8 +173,8 @@ Với ba màu sắc truyền thống là đỏ, trắng, và xanh dương đậm
                 'name' => 'Áo nỉ chui đầu Emporio Armani',
                 'brand' => 'Emporio Armani',
                 'long_desc' => '',
-                'price' => 50,
-                'sale_price' => 35,
+                'price' => 1790,
+                'sale_price' => 1500,
                 'type' => 'hoodie',
                 'category' => 'on_sale, new',
                 'img' => 'ao_ni_chui_dau_emporio_armani.jpg',
@@ -228,8 +203,8 @@ Nếu bạn đến Anh, chắc chắn bạn không thể không biết thương 
 - Fred Perry: Dòng chính của thương hiệu, tập trung vào phong cách truyền thống, thể thao và có thể dùng khi dạo phố.
 
 - Fred Perry Laurel Wealth: giá thành cũng tương đương Fred Perry nhưng quần áo có xu hướng thời trang hơn thay vì cổ điển như Fred Perry.',
-                'price' => 50,
-                'sale_price' => 35,
+                'price' => 1100,
+                'sale_price' => 1000,
                 'type' => 'T-shirt',
                 'category' => 'on_sale, new',
                 'img' => 'ao_thun_dai_tay_fred_perry.jpg',
@@ -254,8 +229,8 @@ Nếu bạn đến Anh, chắc chắn bạn không thể không biết thương 
 
 
 New Era là thương hiệu thời trang chuyên sản xuất các sản phẩm có liên quan đến thế giới bóng chày. New Era không những cho ra đời các sản phẩm có chất lượng cao mà còn luôn bắt kịp các xu hướng thời trang trong nước và quốc tế. Đây sẽ là sản phẩm tuyệt vời để đồng hành cùng bạn trong bất kỳ dịp đặc biệt nào, không chỉ là phụ kiện tô điểm bên ngoài mà còn giúp bạn thể hiện phong cách thời trang tinh tế của người sử dụng. Hãy khám phá thế giới thời trang ấn tượng và khác biệt của New Era.',
-                'price' => 50,
-                'sale_price' => 35,
+                'price' => 240,
+                'sale_price' => 200,
                 'type' => 'cap',
                 'category' => 'on_sale',
                 'img' => 'mu_luoi_trai_new_era.jpg',
@@ -274,8 +249,8 @@ Nổi lên trong số đó là loại mũ len móc, dáng tròn, hơi thả lỏ
 
 
 Asos là thương hiệu thời trang bình dân nổi tiếng của Anh được thành lập năm 2000 bởi Nick Robertson dưới hình thức ban đầu là trang web bán hàng thời trang trực tuyến Asos.com dành cho độ tuổi từ 18-34 tuổi. Tuy nhiên, khi càng phát triển, Asos đã thay đổi đối tượng khách hàng khi nhắm đến đa dạng các đối tượng từ phụ nữ, đàn ông, trẻ em cho tới thanh thiếu niên và cung cấp các mặt hàng chủ yếu như giầy dép, phụ kiện, trang sức, quần áo và mỹ phẩm. Phong cách thời trang của Asos chủ yếu được lấy cảm hứng từ những người nổi tiếng để tạo ra những bộ sản phẩm mang tính xu hướng, thời thượng với giá tiêu dùng bình dân nhất.',
-                'price' => 50,
-                'sale_price' => 35,
+                'price' => 240,
+                'sale_price' => 200,
                 'type' => 'beanie',
                 'category' => 'on_sale',
                 'img' => 'mu_len_dinh_cuc_bong_asos.jpg',
@@ -296,8 +271,8 @@ Bạn đừng nghĩ mũ cói phải theo một màu sắc cơ bản nào đó, b
 
 
 Brixton là một thương hiệu đến từ Anh quốc, đây cũng là thương hiệu yêu thích của chàng ca sĩ nổi tiếng Justin Bieber. Với một loạt cảm hứng được chuyển thể từ âm nhạc, văn hóa và nghệ thuật - nhãn hàng California đã nhanh chóng trở thành một trong những cái tên được tìm đến nhiều nhất trong mắt các fashionista quốc tế. Từ beanie, snapback cho đến fedora hay trilby, các sản phẩm của Brixton đều xứng đáng đạt khung điểm từ 8 đến 10 và chắc chắn - đây sẽ là những sản phẩm phù hợp nhất để bạn diện đến các lễ hội mùa thu đang chuẩn bị diễn ra.',
-                'price' => 50,
-                'sale_price' => 35,
+                'price' => 900,
+                'sale_price' => 800,
                 'type' => 'straw_hat',
                 'category' => 'on_sale',
                 'img' => 'mu_coi_day_vien_den_brixton.jpg',
@@ -328,7 +303,7 @@ Hướng dẫn sử dụng:
 
 
 Không chỉ nổi tiếng với những thiết kế thời trang xóa nhòa ranh giới tuổi tác và giới tính thông qua phong cách unisex, Calvin Klein còn gây ấn tượng bởi các sản phẩm phụ kiện phản ánh lối sống hiện đại, trẻ trung, phóng khoáng. Các sản phẩm của Calvin Klein luôn trung thành với nguyên tắc “Simply as possible, Success as possible”. Từ mẫu mã đến chất liệu, từ trang phục đến phụ kiện, tất cả đều đơn giản, thuần nhất, không cầu kỳ về chi tiết, không rực rỡ về màu sắc. Chính sự đơn giản đó mang lại vẻ đẹp phù hợp với tất cả mọi người cũng như có tính ứng dụng cực cao, đúng như cách mà giới thời trang vẫn nói: Simple is the best.',
-                'price' => 50,
+                'price' => 900,
                 'sale_price' => 0,
                 'type' => 'tie',
                 'category' => 'best_selling',
@@ -345,7 +320,7 @@ Không chỉ nổi tiếng với những thiết kế thời trang xóa nhòa ra
 
 
 Asos là thương hiệu thời trang bình dân nổi tiếng của Anh được thành lập năm 2000 bởi Nick Robertson dưới hình thức ban đầu là trang web bán hàng thời trang trực tuyến Asos.com dành cho độ tuổi từ 18-34 tuổi. Tuy nhiên, khi càng phát triển, Asos đã thay đổi đối tượng khách hàng khi nhắm đến đa dạng các đối tượng từ phụ nữ, đàn ông, trẻ em cho tới thanh thiếu niên và cung cấp các mặt hàng chủ yếu như giầy dép, phụ kiện, trang sức, quần áo và mỹ phẩm. Phong cách thời trang của Asos chủ yếu được lấy cảm hứng từ những người nổi tiếng để tạo ra những bộ sản phẩm mang tính xu hướng, thời thượng với giá tiêu dùng bình dân nhất.',
-                'price' => 50,
+                'price' => 160,
                 'sale_price' => 0,
                 'type' => 'pocket_square',
                 'category' => 'best_selling',
@@ -368,10 +343,10 @@ Thương hiệu Tommy Hilfiger do nhà thiết kế cùng tên sáng lập năm 
 Các thiết kế của hãng rất đa dạng, từ những mẫu thiết kế cơ bản, cổ điển, đến thanh lịch và năng động.
 
 Với ba màu sắc truyền thống là đỏ, trắng, và xanh dương đậm, Tommy Hilfiger đã trở thành một biểu tượng thương hiệu thời trang của Mỹ.',
-                'price' => 50,
-                'sale_price' => 0,
+                'price' => 800,
+                'sale_price' => 700,
                 'type' => 'scarf',
-                'category' => 'best_selling',
+                'category' => 'on_sale, best_selling',
                 'img' => 'khan_ong_tommy_hilfiger.jpg',
                 'short_desc' => 'Mọi người luôn cho rằng khăn ống là phụ kiện dành riêng cho nữ giới, nhưng hiện nay nam giới cũng có thể diện được những chiếc khăn ống cá tính và đầy ấm áp này.',
                 'created_at' => now(),
@@ -389,7 +364,7 @@ Kiểu quàng cơ bản là cách dễ nhất để bạn sử dụng khăn, t�
 Sau khi được phát triển thành thương hiệu có tiếng chuyên về áo sơ mi nam ở Glasgow, Anh, Ted Baker nhanh chóng trở thành nơi để những người đàn ông đương đại tìm kiếm những chiếc áo phù hợp.
 
 Từ những ngày đầu, Ted Baker rất rõ ràng, kiên định, tập trung vào chất lượng, chú ý đến chi tiết với sự hài hước kỳ quặc. Cửa hàng đầu tiên của Ted Baker còn cung cấp dịch vụ giặt ủi cho mỗi chiếc áo được mua. Thương hiệu đã nhanh chóng đạt được thành công với danh hiệu “No Ordinary Designer Label” (thương hiệu của nhà thiết kế không tầm thường). Tất cả mọi thứ được sản xuất dưới tên Ted Baker đều cấu thành với sự độc đáo và tình yêu từ trong trái tim.',
-                'price' => 50,
+                'price' => 980,
                 'sale_price' => 0,
                 'type' => 'scarf',
                 'category' => 'best_selling',
@@ -411,7 +386,7 @@ Từ những ngày đầu, Ted Baker rất rõ ràng, kiên định, tập trung
 Tuy không đa dạng về màu sắc như áo khoác dạ của phái đẹp, áo khoác dạ nam chỉ đơn giản với những gam màu trầm như đen, ghi, đỏ đô hay be nhưng lại rất dễ mix đồ và phù hợp với nhiều màu da, vóc dáng người mặc.
 
 Áo khoác dạ nam được thiết kế cơ bản với kiểu dáng áo mangto và áo vest dạ, mangto dạ bạn cũng có thể chọn cho mình dáng dài trùm gối hay dáng ngắn trùm hông. Với môi trường công sở, các bạn cũng chỉ cần chọn cho mình những mẫu áo trùm hông gọn gàng, đơn giản cũng vừa đủ ấm áp cho ngày đông rồi nhé.',
-                'price' => 50,
+                'price' => 2500,
                 'sale_price' => 0,
                 'type' => 'jacket',
                 'category' => 'new',
@@ -436,7 +411,7 @@ Tuy không đa dạng về màu sắc như áo khoác dạ của phái đẹp, �
 
 
 Bạn muốn khoác lên mình một diện mạo mới? Hãy đến với New Look, vì đó là sứ mệnh cũng như phương châm của thương hiệu thời trang được thành lập vào năm 1969, tại Taunton, Vương Quốc Anh. Trải qua quá trình hình thành và phát triển, cho đến ngày nay New Look được biết đến là chuỗi bán lẻ thời trang nhanh, cập nhật liên tục phong cách thời trang trẻ trên toàn thế giới, đặc biệt là phong cách thời trang đường phố (thời trang casual). Với 1.100 cửa hàng ở khắp 120 nước trên thế giới, New Look sẽ mang đến cho bạn những xu hướng mới nhất từ sàn catwalk, từ những bộ trang phục theo mùa cho đến những item đang hot. New Look muốn mang đến cho bạn cảm giác tươi mới và thoải mái như chính bộ trang phục mà bạn đang mặc. New Look UK có đội ngũ thiết kế trẻ, đam mê thời trang và luôn cập nhật nhanh nhất những xu hướng thời trang đường phố mới nhất hay tâm điểm trên sàn catwalk. Những thiết kế của New Look là kết hợp hoàn hảo của sự nữ tính, độc lập, mạnh mẽ và luôn dịch chuyển.',
-                'price' => 50,
+                'price' => 499,
                 'sale_price' => 0,
                 'type' => 'shoes',
                 'category' => 'new',
@@ -461,7 +436,7 @@ Hàng hiệu Aldo – cái tên đồng nghĩa với lớp học và phong cách
 
 
 Aldo cung cấp các xu hướng mới và cả theo phong cách cổ điển. Giày – thắt lưng – túi xách Aldo được thiết kế để thu hút những người sành thời trang và nắm bắt kịp xu hướng ở đa quốc gia. Tầm nhìn của Aldo với mục đích tạo ra một thế giới tốt đẹp hơn bằng việc đóng góp từ thiện nhiều. Aldo cam kết cập nhật những xu hướng mới nhất song song với nhu cầu hàng ngày. Hãy bổ sung thắt lưng – giày – túi xách Aldo vào bộ sưu tập của bạn để nói lên phong cách riêng của mình. Sản phẩm của Aldo luôn luôn hiện đại với những phong cách tươi mới.',
-                'price' => 50,
+                'price' => 1900,
                 'sale_price' => 0,
                 'type' => 'shoes',
                 'category' => 'new',
@@ -492,7 +467,7 @@ Hướng dẫn sử dụng:
 - Tránh phơi sản phẩm trực tiếp dưới ánh nắng mặt trời
 
 - Tránh để sản phẩm tiếp xúc với vật nhọn',
-                'price' => 50,
+                'price' => 1200,
                 'sale_price' => 0,
                 'type' => 'shoes',
                 'category' => 'new',

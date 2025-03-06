@@ -10,8 +10,6 @@
             </form>
         </div>
     </div>
-    
-  
     <!-- Tiêu đề trang -->
     <h2 class="text-center mb-3">{{ $pageTitle ?? 'Danh sách sản phẩm' }}</h2>
     <!-- Bộ lọc sản phẩm -->
@@ -56,8 +54,8 @@
         @foreach ($products as $product)
         <div class="col-md-3">
             <div class="product-card">
-                @if($product->category === 'on_sale')
-                <span class="sale-badge">SALE</span>
+                @if(strpos($product->category, 'on_sale') !== false) 
+                    <span class="sale-badge">SALE</span>
                 @endif  
                 <div class="product-image">
                      <a href="{{ route('products.detail', ['id' => $product->id]) }}">
@@ -70,14 +68,18 @@
                 </div>
 
                 <div>
-                    @if($product->category === 'on_sale')
-                    <span class="product-price">{{ number_format($product->sale_price, 0) }} VNĐ</span>
+                    @if(str_contains($product->category, 'on_sale'))
+                        <span class="product-price">{{ number_format($product->sale_price * 1000, 0, ',', '.') }} VNĐ</span>
                     @endif
 
-                    @if($product->category !== 'on_sale')
-                    <span class="product-original-price" style="text-decoration: none;">{{ number_format($product->price, 3) }} VNĐ</span>
+                    @if(!str_contains($product->category, 'on_sale'))
+                        <span class="product-original-price" style="text-decoration: none;">
+                            {{ number_format($product->price * 1000, 0, ',', '.') }} VNĐ
+                        </span>
                     @else
-                    <span class="product-original-price">{{ number_format($product->price, 2) }}$</span>
+                        <span class="product-original-price">
+                            {{ number_format($product->price * 1000, 0, ',', '.') }} VNĐ
+                        </span>
                     @endif
                 </div>
                 <!-- Thêm nút "Thêm vào giỏ hàng" -->
@@ -134,8 +136,14 @@
     }
 
     .product-name {
-      font-weight: bold;
-      margin: 10px 0 5px;
+        font-weight: bold;
+        margin: 10px 0 5px;
+        line-height: 1.4em; /* Đảm bảo dòng chữ dễ đọc */
+        height: 2.8em; /* 2 dòng (1.4em * 2) */
+        overflow: hidden; /* Ẩn phần bị tràn nếu quá 2 dòng */
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
     }
 
     .product-price {
