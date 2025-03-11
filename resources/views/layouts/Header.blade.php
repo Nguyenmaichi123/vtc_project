@@ -52,7 +52,7 @@
                 
 
 
-                    <div class="container">
+                    <div class="container d-flex justify-content-center align-items-center">
                         <!-- <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
@@ -60,7 +60,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button> -->
 
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                       
                             <!-- Left Side Of Navbar -->
                             <ul class="navbar-nav me-auto">
 
@@ -101,7 +101,7 @@
                                 </li>
                                 @endguest
                             </ul>
-                        </div>
+                       
 
                     </div>
 
