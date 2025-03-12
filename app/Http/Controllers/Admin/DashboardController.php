@@ -2,44 +2,51 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\User;
+use Illuminate\Http\Request;
 use Carbon\Carbon;
 
 class DashboardController extends Controller
 {
 public function index()
 {
-// **1. Tổng số đơn hàng**
-$totalOrders = Order::count();
-
-// **2. Tổng doanh thu**
+// Tổng doanh thu
 $totalRevenue = Order::where('status', 'completed')->sum('total_price');
 
-// **3. Tổng số sản phẩm**
+// Tổng số đơn hàng
+$totalOrders = Order::count();
+
+// Tổng số sản phẩm
 $totalProducts = Product::count();
 
-// **4. Tổng số khách hàng**
+// Tổng số khách hàng (không tính admin)
 $totalCustomers = User::where('role', 'customer')->count();
 
-// **5. Thống kê đơn hàng theo trạng thái**
+// Thống kê trạng thái đơn hàng
 $pendingOrders = Order::where('status', 'pending')->count();
-$shippedOrders = Order::where('status', 'shipped')->count();
+$shippingOrders = Order::where('status', 'shipping')->count();
 $completedOrders = Order::where('status', 'completed')->count();
-$cancelledOrders = Order::where('status', 'cancelled')->count();
+$canceledOrders = Order::where('status', 'canceled')->count();
 
-// **6. Doanh thu theo từng tháng (cho biểu đồ)**
-$monthlyRevenue = Order::where('status', 'completed')
-->selectRaw('MONTH(created_at) as month, SUM(total_price) as revenue')
-->groupBy('month')
-->pluck('revenue', 'month');
+// Lấy dữ liệu doanh thu 6 tháng gần nhất
+$months = [];
+$monthlyRevenue = [];
+for ($i = 5; $i >= 0; $i--) {
+$date = Carbon::now()->subMonths($i);
+$months[] = $date->format('m/Y');
+$monthlyRevenue[] = Order::where('status', 'completed')
+->whereYear('created_at', $date->year)
+->whereMonth('created_at', $date->month)
+->sum('total_price');
+}
 
 return view('admin.dashboard', compact(
-'totalOrders', 'totalRevenue', 'totalProducts', 'totalCustomers',
-'pendingOrders', 'shippedOrders', 'completedOrders', 'cancelledOrders',
-'monthlyRevenue'
+'totalRevenue', 'totalOrders', 'totalProducts', 'totalCustomers',
+'pendingOrders', 'shippingOrders', 'completedOrders', 'canceledOrders',
+'months', 'monthlyRevenue'
 ));
 }
+    
 }

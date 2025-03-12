@@ -112,7 +112,7 @@ Route::get('/checkoutcomplete', [CheckoutController::class, 'checkoutcomplete'])
 // ===================== ROUTE CHO ADMIN =====================
 Route::prefix('admin-dashboard')->middleware(['auth', 'admin'])->group(function () {
     Route::get('/', [AdminController::class, 'dashboard'])->name('admin.dashboard');
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+    Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
 
     // ✅ Sửa lại ProductController của ADMIN (tránh trùng với USER)
     Route::resource('products', AdminProductController::class);
@@ -130,10 +130,10 @@ Route::prefix('admin-dashboard')->middleware(['auth', 'admin'])->group(function 
     Route::get('/admin/users', [UserController::class, 'index'])->name('admin.customers.index');
     Route::get('/admin/users/deleted', [UserController::class, 'indexDeleted'])->name('admin.users.deleted');
     Route::post('/admin/users/{id}/restore', [UserController::class, 'restore'])->name('admin.users.restore');
-   
+
 
     //quan ly don hang
-    
+
     Route::get('/orders/{id}', [OrderController::class, 'show'])->name('admin.orders.show'); // Chi tiết đơn hàng
     Route::get('/orders/{id}/edit', [OrderController::class, 'edit'])->name('admin.orders.edit'); // Chỉnh sửa đơn hàng
     Route::put('/orders/{id}', [OrderController::class, 'update'])->name('admin.orders.update'); // Cập nhật đơn hàng
