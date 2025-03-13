@@ -10,6 +10,8 @@ use App\Http\Controllers\ProductController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\Auth\PasswordController;
+
 
 // ADMIN
 use App\Http\Controllers\Admin\AdminController;
@@ -19,8 +21,14 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController as AdminProductController; // ✅ Đổi alias để tránh trùng
 use App\Http\Controllers\Admin\DashboardController;
 
+
+
 // ===================== ROUTE CHO USER =====================
 Route::get('/', [HomeController::class, 'home'])->name('home.index');
+
+
+
+
 
 // Route cho trang giới thiệu
 Route::get('/gioithieu', function () {
@@ -63,12 +71,14 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 // Profile dành cho user đã đăng nhập
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/profile', [ProfileController::class, 'show'])->name('profile.index');
+    Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::post('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
+    Route::get('/profile/edit-password', [PasswordController::class, 'edit'])->name('password.edit');
+    Route::post('/profile/change-password', [PasswordController::class, 'change_update'])->name('password.update');
+    Route::post('/profile/handle-password', [PasswordController::class, 'handlePasswordInput'])->name('password.handle');
 });
-
 // Xác thực Laravel
 Auth::routes();
 
@@ -138,4 +148,7 @@ Route::prefix('admin-dashboard')->middleware(['auth', 'admin'])->group(function 
     Route::get('/orders/{id}/edit', [OrderController::class, 'edit'])->name('admin.orders.edit'); // Chỉnh sửa đơn hàng
     Route::put('/orders/{id}', [OrderController::class, 'update'])->name('admin.orders.update'); // Cập nhật đơn hàng
     Route::delete('/orders/{id}', [OrderController::class, 'destroy'])->name('admin.orders.destroy'); // Xóa đơn hàng
+
+
+
 });

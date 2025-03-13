@@ -49,4 +49,10 @@ class User extends Authenticatable
     {
         return strtoupper($this->name);
     }
+
+
+    public function profile()
+{
+    return $this->hasOne(Profile::class);
+}
 }

@@ -12,7 +12,6 @@
                 <th>Tên sản phẩm</th>
                 <th>Danh mục</th>
                 <th>Giá bán</th>
-                <th>Số lượng</th>
                 <th>Thao tác</th>
             </tr>
         </thead>
@@ -23,7 +22,6 @@
                 <td>{{ $product->name }}</td>
                 <td>{{ $product->category ?? 'Chưa phân loại' }}</td> <!-- ✅ Sửa lại -->
                 <td>{{ number_format($product->price) }} VND</td>
-                <td>{{ $product->quantity ?? 'Không xác định' }}</td> <!-- ✅ Tránh lỗi nếu quantity không có -->
                 <td>
                     <a href="{{ route('products.edit', $product->id) }}" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> Sửa</a>
                     <form action="{{ route('products.destroy', $product->id) }}" method="POST" class="d-inline">

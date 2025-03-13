@@ -25,7 +25,7 @@
                             <li class="nav-item dropdown">
                                 <a class="dropdown-item" href="{{ route('products.bestSelling') }}">
                                     Sản phẩm nổi bật
-                                </a>       
+                                </a>
                             </li>
                             <li><a class="dropdown-item" href="{{ route('products.new') }}">Sản phẩm mới</a></li>
                         </ul>
@@ -43,67 +43,69 @@
 
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
                 <a href="{{ route('cart.show') }}" class="nav-link d-flex align-items-center justify-contents-center  position-relative">
-                    <i class="fa fa-shopping-cart fs-5  me-2"></i> 
-                    <span class="cart-text " >Giỏ hàng</span>
+                    <i class="fa fa-shopping-cart fs-5  me-2"></i>
+                    <span class="cart-text ">Giỏ hàng</span>
                     <span id="cart-count" class="badge bg-danger position-absolute top-0 start-100 translate-middle rounded-pill">
                         0
                     </span>
                 </a>
-                
 
 
-                    <div class="container">
-                        <!-- <a class="navbar-brand" href="{{ url('/') }}">
+
+                <div class="container">
+                    <!-- <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button> -->
 
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <!-- Left Side Of Navbar -->
-                            <ul class="navbar-nav me-auto">
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <!-- Left Side Of Navbar -->
+                        <ul class="navbar-nav me-auto">
 
-                            </ul>
+                        </ul>
 
-                            <!-- Right Side Of Navbar -->
-                            <ul class="navbar-nav ms-auto">
-                                <!-- Authentication Links -->
-                                @guest
-                                @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                                @endif
+                        <!-- Right Side Of Navbar -->
+                        <ul class="navbar-nav ms-auto">
+                            <!-- Authentication Links -->
+                            @guest
+                            @if (Route::has('login'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            </li>
+                            @endif
 
-                                @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                                @endif
-                                @else
-                                <li class="nav-item dropdown">
-                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                        {{ Auth::user()->name }}
+                            @if (Route::has('register'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            </li>
+                            @endif
+                            @else
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }}
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
                                     </a>
 
-                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            {{ __('Logout') }}
-                                        </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
 
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                            @csrf
-                                        </form>
-                                    </div>
-                                </li>
-                                @endguest
-                            </ul>
-                        </div>
-
+                                        @csrf
+                                    </form>
+                                    <a href="{{ route('profile.index') }}">View profile</a>
+                                </div>
+                            </li>
+                            @endguest
+                        </ul>
                     </div>
+
+                </div>
 
 
             </div>
@@ -125,11 +127,10 @@
             <div class="p-3 border bg-dark text-light">THANH TOÁN TRỰC TUYẾN</div>
         </div>
     </div>
-  
+
 </div>
 
 <style>
-
     /* Ẩn tất cả dropdown mặc định */
     .navbar-nav .dropdown-menu {
         display: none;
@@ -179,16 +180,14 @@
     }
 
     #cart-count {
-    font-size: 10px;
-    padding: 5px 8px;
-    min-width: 22px;
-    text-align: center;
-    color: white;
-    top: 5px;
-    right: 5px;
-
-    
-}
+        font-size: 10px;
+        padding: 5px 8px;
+        min-width: 22px;
+        text-align: center;
+        color: white;
+        top: 5px;
+        right: 5px;
 
 
+    }
 </style>
