@@ -32,7 +32,7 @@ return new class extends Migration {
                 'brand' => 'Tommy Hilfiger',
                 'long_desc' => 'Áo sơmi là trang phục lịch sự, trang nhã, luôn đem lại phong cách thanh lịch cho nam giới. Tuy được sử dụng rộng rãi nhưng việc lựa chọn áo sơmi sao cho phù hợp với mỗi người thì không phải là chuyện nhỏ.
 ',
-                'price' => 1500,
+                'price' => 1600,
                 'sale_price' => 0,
                 'type' => 'shirt',
                 'category' => 'best_selling, new',
