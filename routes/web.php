@@ -10,6 +10,7 @@ use App\Http\Controllers\ProductController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
+
 use App\Http\Controllers\Auth\PasswordController;
 
 
@@ -20,6 +21,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController as AdminProductController; // ✅ Đổi alias để tránh trùng
 use App\Http\Controllers\Admin\DashboardController;
+
 
 
 
@@ -151,4 +153,6 @@ Route::prefix('admin-dashboard')->middleware(['auth', 'admin'])->group(function 
 
 
 
+
 });
+
