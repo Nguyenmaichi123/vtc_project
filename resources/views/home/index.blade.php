@@ -81,7 +81,7 @@
             </div>
         </div>
         @endforeach
-        <a href="{{route('products.index')}}" class="text-center mt-5">
+        <a href="/products" class="text-center mt-5">
             <button class="btn-xem-them">XEM THÊM</button>
         </a>
     </div>
