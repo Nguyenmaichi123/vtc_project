@@ -42,9 +42,11 @@
                             @csrf
                             @method('PUT')
                             <div class="input-group" style="width: 120px;">
+
                                 <button type="submit" name="decrease" value="{{ $product->quantity - 1 }}" class="btn btn-outline-secondary">-</button>
                                 <input type="text" name="quantity" value="{{ $product->quantity }}" class="form-control text-center">
                                 <button type="submit" name="increase" value="{{ $product->quantity + 1 }}" class="btn btn-outline-secondary">+</button>
+
                             </div>
                         </form>
                     </td>
