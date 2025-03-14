@@ -57,7 +57,7 @@
                             {{ $product->quantity }}
                         </span>
                     </div>
-                    <span>{{ number_format($product->price, 0, ',', '.') }}$</span>
+                    <span>{{ number_format($product->price * 1000, 0, ',', '.') }} VNĐ</span>
                 </li>
                 @endforeach
             </ul>
@@ -70,7 +70,7 @@
             <ul class="list-group">
                 <li class="list-group-item d-flex justify-content-between">
                     <span>Tạm tính</span>
-                    <strong>{{ number_format($total, 0, ',', '.') }}$</strong>
+                    <strong>{{ number_format($total * 1000, 0, ',', '.') }} VNĐ</strong>
                 </li>
                 <li class="list-group-item d-flex justify-content-between bg-light">
                     <span>Phí vận chuyển</span>
@@ -78,7 +78,7 @@
                 </li>
                 <li class="list-group-item d-flex justify-content-between">
                     <span><strong>Tổng cộng</strong></span>
-                    <strong>{{ number_format($total, 0, ',', '.') }}$</strong>
+                    <strong>{{ number_format($total * 1000, 0, ',', '.') }} VNĐ</strong>
                 </li>
             </ul>
 

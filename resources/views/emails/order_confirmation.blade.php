@@ -24,12 +24,12 @@
             <tr>
                 <td>{{ $item['name'] }}</td>
                 <td>{{ $item['quantity'] }}</td>
-                <td>{{ number_format($item['price'], 2) }}$</td>
+                <td>{{ number_format($item['price'] * 1000, 0, ',', '.') }} VNĐ</td>
             </tr>
         @endforeach
     </table>
 
-    <h3>Tổng cộng: {{ number_format($order->total_price, 2) }}$</h3>
+    <h3>Tổng cộng: {{ number_format($order->total_price * 1000, 0, ',', '.') }} VNĐ</h3>
 
     <p>Cảm ơn bạn đã mua hàng!</p>
     <p>Trân trọng, <br> <strong>Gentleman Store</strong></p>

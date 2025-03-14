@@ -123,7 +123,7 @@ Route::post('/checkout', [CheckoutController::class, 'placeOrder'])->name('check
 Route::get('/checkoutcomplete', [CheckoutController::class, 'checkoutcomplete'])->name('checkoutcomplete');
 
 // ===================== ROUTE CHO ADMIN =====================
-Route::prefix('admin-dashboard')->middleware(['auth', 'admin'])->group(function () {
+Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     Route::get('/', [AdminController::class, 'dashboard'])->name('admin.dashboard');
     Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
 

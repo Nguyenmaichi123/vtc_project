@@ -36,7 +36,7 @@
                         <img src="{{ asset('product/' . $product->img) }}" alt="{{ $product->name }}" width="80">
                     </td>
                     <td>{{ $product->name }}</td>
-                    <td><strong>{{ number_format($product->price, 0, ',', '.') }}$</strong></td>
+                    <td><strong>{{ number_format($product->price * 1000, 0, ',', '.') }} VNĐ</strong></td>
                     <td>
                         <form action="{{ route('cart.update', $product->id) }}" method="POST">
                             @csrf
@@ -50,7 +50,7 @@
                             </div>
                         </form>
                     </td>
-                    <td><strong>{{ number_format($subtotal, 0, ',', '.') }}$</strong></td>
+                    <td><strong>{{ number_format($subtotal* 1000, 0, ',', '.') }} VNĐ</strong></td>
                     <td>
                         <form action="{{ route('cart.remove', $product->id) }}" method="POST">
                             @csrf
@@ -66,7 +66,7 @@
         <tfoot>
             <tr>
                 <td colspan="4" class="text-end"><strong>Tổng tiền:</strong></td>
-                <td><strong>{{ number_format($total, 0, ',', '.') }}$</strong></td>
+                <td><strong>{{ number_format($total * 1000, 0, ',', '.') }} VNĐ</strong></td>
                 <td></td>
             </tr>
         </tfoot>

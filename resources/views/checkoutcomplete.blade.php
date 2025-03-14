@@ -69,7 +69,7 @@
                 <div class="d-flex align-items-center mb-3 position-relative p-3">
                     <img src="{{ asset('product/'.$item['img']) }}" alt="Product Image" class="me-3" width="80">
                     <p class="mb-0">{{$item['name']}}</p>
-                    <span class="ms-auto">{{$item['price']}}$</span>
+                    <span class="ms-auto">{{ number_format($item['price'] * 1000, 0, ',', '.') }} VNĐ</span>
                     <span  class="badge bg-danger position-absolute top-0 start-100 translate-middle rounded-pill">
                         {{ $item['quantity'] }}
                     </span>
@@ -77,9 +77,9 @@
                 <hr>
                @endforeach
                
-                <p><strong>Tạm tính: </strong>{{$total}}$</p>
+                <p><strong>Tạm tính: </strong>{{ number_format($total * 1000, 0, ',', '.') }} VNĐ</p>
                 
-                <p class="total-price">Tổng cộng: {{$total}}$</p>
+                <p class="total-price">Tổng cộng: {{ number_format($total * 1000, 0, ',', '.') }} VNĐ</p>
             </div>
         </div>
     </div>

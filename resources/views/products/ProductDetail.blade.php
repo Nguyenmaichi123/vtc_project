@@ -18,10 +18,10 @@
             <p>{{ $product->short_desc }}</p>
             <p class="price">
                 @if ($product->sale_price > 0)
-                    <span class="current-price">{{ $product->sale_price }}$</span>
-                    <span class="original-price">{{ $product->price }}$</span>
+                    <span class="current-price">{{ number_format($product->sale_price * 1000, 0, ',', '.') }} VNĐ</span>
+                    <span class="original-price">{{ number_format($product->price * 1000, 0, ',', '.') }} VNĐ</span>
                 @else
-                    <span class="original-price no-strike">{{ $product->price }}$</span>
+                    <span class="original-price no-strike">{{ number_format($product->price * 1000, 0, ',', '.') }} VNĐ</span>
                 @endif
             </p>
             <div class="quantity">

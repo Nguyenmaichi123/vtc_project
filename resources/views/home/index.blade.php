@@ -50,7 +50,8 @@
                <a href="{{ route('products.detail', ['id' => $product->id]) }}"><img src="{{ asset('product/' . $product->img) }}" class="card-img-top" alt="{{$product->name}}"></a>
                 <div class="card-body text-center">
                     <p class="card-text">{{$product->name}}</p>
-                    <h5 class="font-weight-bold">{{$product->price}}$</h5>
+                    <h5 class="font-weight-bold">{{ number_format($product->price * 1000, 0, ',', '.') }} VNĐ</h5>
+                    
                     <button class="btn btn-primary btn-block px-3 border bg-dark text-light add-to-cart" data-id="{{ $product->id }}">
                         <i class="bi bi-cart-plus"></i> Thêm vào giỏ hàng
                     </button>
@@ -72,7 +73,7 @@
             </a>
                 <div class="card-body text-center">
                     <p class="card-text">{{$product->name}}</p>
-                    <h5 class="font-weight-bold">{{$product->price}}$</h5>
+                    <h5 class="font-weight-bold">{{ number_format($product->price * 1000, 0, ',', '.') }} VNĐ</h5>
                     <button class="btn btn-primary btn-block px-3 border bg-dark text-light add-to-cart" data-id="{{ $product->id }}">
                         <i class="bi bi-cart-plus"></i> Thêm vào giỏ hàng
                     </button>

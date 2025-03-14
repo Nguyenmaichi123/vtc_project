@@ -17,7 +17,7 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item dropdown">
                         <!-- <a class="nav-link dropdown-toggle" href="/product">SẢN PHẨM</a> -->
-                        <a class="nav-link dropdown-toggle" href="{{ route('products.index') }}">SẢN PHẨM</a>
+                        <a class="nav-link dropdown-toggle" href="/products">SẢN PHẨM</a>
                         <ul class="dropdown-menu">
                             <li>
                                 <a class="dropdown-item" href="{{ route('products.onSale') }}">Sản phẩm khuyến mại</a>
@@ -107,7 +107,7 @@
 
                                         @csrf
                                     </form>
-                                    <a href="{{ route('profile.index') }}">View profile</a>
+                                    <a href="{{ route('profile.index') }}" class="btn btn-outline-secondary text-dark">View profile</a>
                                 </div>
                             </li>
                             
