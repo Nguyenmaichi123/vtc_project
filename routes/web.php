@@ -93,7 +93,7 @@ Route::get('/home', function () {
 Route::middleware(['auth'])->group(function () {
     Route::get('/admin', function () {
         if (Auth::user()->role != 'admin') {
-            abort(403);
+            abort(403);                                                                                         
         }
         return view('admin.dashboard');
     })->name('admin.dashboard');
