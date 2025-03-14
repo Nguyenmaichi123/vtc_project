@@ -53,6 +53,7 @@ Route::get('/products/type/{type}', [ProductController::class, 'filterByType'])-
 Route::get('/product-detail/{id}', [ProductController::class, 'showDetail'])->name('products.detail');
 
 // Liên hệ
+
 Route::get('/lien-he', function () {
     return view('contact.index');
 })->name('lienhe');
