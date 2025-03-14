@@ -1,0 +1,31 @@
+
+/* Khi màn hình lớn hơn 768px (PC) */
+@media screen and (max-width: 768px) {
+    .test {
+        display: block; /* Ẩn trên PC */
+    }
+    .test2 {
+        display: none; /* Hiển thị trên PC */
+    }
+}
+
+
+@media screen and (min-width: 1024px) {
+     .test {
+        display: none; /* Ẩn trên PC */
+    }
+    .test2 {
+        display: block; /* Hiển thị trên PC */
+    }
+}
+
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+      .test {
+        display: none; /* Ẩn trên PC */
+    }
+    .test2 {
+        display: block; /* Hiển thị trên PC */
+    }
+}
+

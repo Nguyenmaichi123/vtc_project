@@ -25,7 +25,7 @@
                             <li class="nav-item dropdown">
                                 <a class="dropdown-item" href="{{ route('products.bestSelling') }}">
                                     Sản phẩm nổi bật
-                                </a>       
+                                </a>
                             </li>
                             <li><a class="dropdown-item" href="{{ route('products.new') }}">Sản phẩm mới</a></li>
                         </ul>
@@ -43,12 +43,15 @@
 
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
                 <a href="{{ route('cart.show') }}" class="nav-link d-flex align-items-center justify-contents-center  position-relative">
+
                     <i class="fa fa-shopping-cart fs-5  me-2"></i> 
                     <span class="cart-text " >Giỏ hàng</span>
+
                     <span id="cart-count" class="badge bg-danger position-absolute top-0 start-100 translate-middle rounded-pill">
                         0
                     </span>
                 </a>
+
                 
 
 
@@ -87,10 +90,35 @@
                                         {{ Auth::user()->name }}
                                     </a>
 
-                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
+
+                        </ul>
+
+                        <!-- Right Side Of Navbar -->
+                        <ul class="navbar-nav ms-auto">
+                            <!-- Authentication Links -->
+                            @guest
+                            @if (Route::has('login'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            </li>
+                            @endif
+
+                            @if (Route::has('register'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            </li>
+                            @endif
+                            @else
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }}
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
+
                                             {{ __('Logout') }}
                                         </a>
 
@@ -103,7 +131,17 @@
                             </ul>
                        
 
+
+                                        @csrf
+                                    </form>
+                                    <a href="{{ route('profile.index') }}">View profile</a>
+                                </div>
+                            </li>
+                            @endguest
+                        </ul>
                     </div>
+
+                </div>
 
 
             </div>
@@ -125,11 +163,10 @@
             <div class="p-3 border bg-dark text-light">THANH TOÁN TRỰC TUYẾN</div>
         </div>
     </div>
-  
+
 </div>
 
 <style>
-
     /* Ẩn tất cả dropdown mặc định */
     .navbar-nav .dropdown-menu {
         display: none;
@@ -179,6 +216,7 @@
     }
 
     #cart-count {
+
     font-size: 10px;
     padding: 5px 8px;
     min-width: 22px;
@@ -191,4 +229,7 @@
 }
 
 
+
+
+    }
 </style>

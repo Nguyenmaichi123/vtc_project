@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Mail;
 
 
 
+
 class CheckoutController extends Controller
 {
     public function index()
@@ -51,6 +52,8 @@ class CheckoutController extends Controller
             'payment_method' => 'required'
         ]);
 
+
+
         $email = $request->email;
         $name = $request->name;
         $phone = $request->phone;
@@ -83,6 +86,7 @@ class CheckoutController extends Controller
             ]);
         }
 
+
         Mail::to($order->email)->send(new OrderConfirmationMail($order, $products));
         // Xóa giỏ hàng sau khi đặt hàng
         session()->forget('cart');
@@ -90,5 +94,4 @@ class CheckoutController extends Controller
         return view('checkoutcomplete',compact('email','name','phone','address','city','payment_method','total','products'));
     }
 
-    
 }
