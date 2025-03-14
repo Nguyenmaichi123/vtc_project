@@ -36,7 +36,7 @@ return new class extends Migration {
                 'brand' => 'Tommy Hilfiger',
                 'long_desc' => 'Áo sơmi là trang phục lịch sự, trang nhã, luôn đem lại phong cách thanh lịch cho nam giới. Tuy được sử dụng rộng rãi nhưng việc lựa chọn áo sơmi sao cho phù hợp với mỗi người thì không phải là chuyện nhỏ.
 ',
-                'price' => 50,
+                'price' => 1500,
                 'sale_price' => 0,
                 'type' => 'shirt',
                 'category' => 'best_selling, new',
@@ -87,7 +87,7 @@ Kính Ray-Ban chính là một biểu tượng thời trang và khẳng định 
                 'brand' => 'Asos',
                 'long_desc' => 'Trong mùa thu/đông, chúng ta đều không thể phủ nhận sức hút mãnh liệt của chất liệu len khi mà những chiếc áo len họa tiết với đủ màu sắc vui mắt xuất hiện trên khắp các đường phố, nhưng điều đó không có nghĩa là bạn lại bỏ xó những chiếc áo hoodie quen thuộc của mình. Mặc dù không phải là một xu hướng, áo hoodie cũng giống như những chiếc quần jeans, item này là hình ảnh đại diện cho vẻ năng động, tươi trẻ và luôn trường tồn cùng phong cách hiện đại. Hơn thế nữa, một chiếc áo hoodie ấm áp luôn sẵn sàng để có thể biến bất cứ trang phục nào trong tủ của bạn trở nên trẻ trung hơn gấp bội. Với đặc thù là một item mang nặng tính casual, bạn sẽ không phải mất nhiều thời gian để chuẩn bị cho mình một bộ trang phục hoàn chỉnh với hoodie.
 Asos là thương hiệu thời trang bình dân nổi tiếng của Anh được thành lập năm 2000 bởi Nick Robertson dưới hình thức ban đầu là trang web bán hàng thời trang trực tuyến Asos.com dành cho độ tuổi từ 18-34 tuổi. Tuy nhiên, khi càng phát triển, Asos đã thay đổi đối tượng khách hàng khi nhắm đến đa dạng các đối tượng từ phụ nữ, đàn ông, trẻ em cho tới thanh thiếu niên và cung cấp các mặt hàng chủ yếu như giầy dép, phụ kiện, trang sức, quần áo và mỹ phẩm. Phong cách thời trang của Asos chủ yếu được lấy cảm hứng từ những người nổi tiếng để tạo ra những bộ sản phẩm mang tính xu hướng, thời thượng với giá tiêu dùng bình dân nhất.',
-                'price' => 40,
+                'price' => 360,
                 'sale_price' => 0,
                 'type' => 'hoodie',
                 'category' => 'best_selling, new',
@@ -104,7 +104,7 @@ Asos là thương hiệu thời trang bình dân nổi tiếng của Anh đượ
 
 Len cổ lọ là kiểu áo cơ bản mùa đông, già trẻ gái trai - ai ai cũng "cố thủ" đôi ba chiếc. Mùa đông ở Việt Nam không có tuyết, nhưng sương muối buốt giá cũng đủ thử thách trái tim dũng cảm của mọi người mỗi sáng trở dậy đi học, đi làm. Len cổ lọ, có thể đảm bảo độ ấm áp bằng áo len thường và khăn choàng cộng lại, độ hữu ích chẳng cách nào phủ nhận.
 Asos là thương hiệu thời trang bình dân nổi tiếng của Anh được thành lập năm 2000 bởi Nick Robertson dưới hình thức ban đầu là trang web bán hàng thời trang trực tuyến Asos.com dành cho độ tuổi từ 18-34 tuổi. Tuy nhiên, khi càng phát triển, Asos đã thay đổi đối tượng khách hàng khi nhắm đến đa dạng các đối tượng từ phụ nữ, đàn ông, trẻ em cho tới thanh thiếu niên và cung cấp các mặt hàng chủ yếu như giầy dép, phụ kiện, trang sức, quần áo và mỹ phẩm. Phong cách thời trang của Asos chủ yếu được lấy cảm hứng từ những người nổi tiếng để tạo ra những bộ sản phẩm mang tính xu hướng, thời thượng với giá tiêu dùng bình dân nhất.',
-                'price' => 30,
+                'price' => 680,
                 'sale_price' => 0,
                 'type' => 'sweater',
                 'category' => 'best_selling, new',
@@ -136,7 +136,7 @@ Chiếc áo sweater bên trong trench coat tạo nên vẻ ngoài mang một ch�
                 'brand' => 'Asos',
                 'long_desc' => 'Những chiếc bomber jacket lại giúp mang tới vẻ gọn gàng và rất man mà không cần phải thêm thắt quá nhiều chi tiết. Chiếc áo khoác đậm chất unisex này khiến có thể hợp với mọi phong cách, và mọi dáng người, khi biết kết hợp đúng đắn. Tuy nhiên nếu bạn là một chàng trai yêu thích sự thời trang và xu hướng thì những chiếc áo bomber jacket hoa, họa tiết lạ mắt sẽ vô cùng phù hợp với phong cách thời trang này. Nhưng đối với những chàng trai yêu sự manh mẽ, nam tính thì những chiếc áo bomber với tông màu basic như đen, xanh, nâu là lựa chọn vô cùng hoàn hảo. Đặc biệt dáng áo này còn giúp các anh chàng tự tin thề hiện cá tính của mình. Bạn cũng có thể kết hợp với với một đôi sneaker và một chiếc mũ snapback để tạo nên phong cách thú vị.
 Asos là thương hiệu thời trang bình dân nổi tiếng của Anh được thành lập năm 2000 bởi Nick Robertson dưới hình thức ban đầu là trang web bán hàng thời trang trực tuyến Asos.com dành cho độ tuổi từ 18-34 tuổi. Tuy nhiên, khi càng phát triển, Asos đã thay đổi đối tượng khách hàng khi nhắm đến đa dạng các đối tượng từ phụ nữ, đàn ông, trẻ em cho tới thanh thiếu niên và cung cấp các mặt hàng chủ yếu như giầy dép, phụ kiện, trang sức, quần áo và mỹ phẩm. Phong cách thời trang của Asos chủ yếu được lấy cảm hứng từ những người nổi tiếng để tạo ra những bộ sản phẩm mang tính xu hướng, thời thượng với giá tiêu dùng bình dân nhất.',
-                'price' => 55,
+                'price' => 1100,
                 'sale_price' => 0,
                 'type' => 'jacket',
                 'category' => 'best_selling, new',
