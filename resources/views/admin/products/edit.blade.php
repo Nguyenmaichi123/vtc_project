@@ -5,7 +5,7 @@
 <div class="product-edit-container">
     <h1>Chỉnh sửa sản phẩm</h1>
 
-    <form action="{{ route('admin.products.update', $product->id) }}" method="POST">
+    <form action="{{ route('admin.products.update', $product->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
@@ -56,7 +56,7 @@
 
         <div class="full-width">
             <label for="img">Hình ảnh:</label>
-            <input type="text" name="img" value="{{ $product->img }}">
+            <input type="file" name="img" >
         </div>
 
         <button type="submit">Cập nhật</button>

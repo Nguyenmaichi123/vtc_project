@@ -33,7 +33,7 @@ class ProductController extends Controller
             'category' => 'string|max:255',
             'category_id' => 'nullable|integer',
             'type' => 'nullable|string|max:255',
-            'image' => 'nullable|image|max:2048',
+            'img' => 'nullable|image|max:2048',
             'short_desc' => 'nullable|string',
         ]);
 
@@ -46,14 +46,14 @@ class ProductController extends Controller
             'type',
             'category',
             'category_id',
-            'short_desc'
+            'short_desc',
         ]);
 
         if ($request->hasFile('image')) {
             $file = $request->file('image');
             $filename = time() . '_' . $file->getClientOriginalName();
-            $file->move(public_path('uploads'), $filename);
-            $data['image'] = 'uploads/' . $filename;
+            $file->move(public_path('product'), $filename);
+            $data['img'] = $filename;
         }
 
         Product::create($data);
@@ -69,8 +69,8 @@ class ProductController extends Controller
     public function update(Request $request, $id)
     {
         $product = Product::findOrFail($id);
-
-        // Kiểm tra dữ liệu đầu vào
+    
+        // Validation (chỉnh lại đúng input image)
         $request->validate([
             'name' => 'required|string|max:255',
             'brand' => 'required|string|max:255',
@@ -81,11 +81,11 @@ class ProductController extends Controller
             'sale_price' => 'nullable|numeric',
             'short_desc' => 'nullable|string',
             'long_desc' => 'nullable|string',
-            'img' => 'nullable|string',
+            'img' => 'nullable|image|max:2048', // sửa đúng ở đây
         ]);
-
-        // Cập nhật dữ liệu
-        $product->update([
+    
+        // lấy dữ liệu từ form
+        $data = [
             'name' => $request->name,
             'brand' => $request->brand,
             'type' => $request->type,
@@ -95,11 +95,23 @@ class ProductController extends Controller
             'sale_price' => $request->sale_price,
             'short_desc' => $request->short_desc,
             'long_desc' => $request->long_desc,
-            'img' => $request->img,
-        ]);
-
+        ];
+    
+        // nếu có ảnh mới thì lưu vào DB
+        if ($request->hasFile('img')) {
+            $file = $request->file('img');
+            $filename = time() . '_' . $file->getClientOriginalName();
+    
+            $file->move(public_path('product'), $filename);
+            
+            $data['img'] = $filename; // lưu vào trường img
+        }
+    
+        $product->update($data);
+    
         return redirect()->route('products.index')->with('success', 'Sản phẩm đã được cập nhật.');
     }
+    
     public function destroy($id)
     {
         $product = Product::findOrFail($id);

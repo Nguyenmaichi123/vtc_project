@@ -16,7 +16,7 @@ class LoginController extends Controller
     protected function redirectTo()
     {
         if (Auth::user()->role === 'admin') {
-            return '/admin-dashboard'; // Điều hướng admin đến trang quản trị
+            return '/admin'; // Điều hướng admin đến trang quản trị
         }
         return '/'; // Người dùng bình thường về trang chủ
     }
