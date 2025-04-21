@@ -20,7 +20,7 @@
             <tr>
                 <td>{{ $order->id }}</td>
                 <td>{{ $order->name }}</td>
-                <td>{{ number_format($order->total_price) }} VND</td>
+                <td>{{ number_format($order->total_price* 1000) }} VND</td>
                 <td>{{ ucfirst($order->status) }}</td>
                 <td>{{ $order->created_at->format('d/m/Y') }}</td>
                 <td>

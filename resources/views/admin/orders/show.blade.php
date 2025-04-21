@@ -39,7 +39,7 @@
         </tr>
         <tr>
             <th>Tổng tiền</th>
-            <td><strong>{{ number_format($order->total_price) }} VND</strong></td>
+            <td><strong>{{ number_format($order->total_price* 1000) }} VND</strong></td>
         </tr>
     </table>
 
@@ -59,8 +59,8 @@
             <tr>
                 <td>{{ $item->product->name ?? 'Sản phẩm không tồn tại' }}</td>
                 <td>{{ $item->quantity }}</td>
-                <td>{{ number_format($item->price) }} VND</td>
-                <td>{{ number_format($item->quantity * $item->price) }} VND</td>
+                <td>{{ number_format($item->price* 1000) }} VND</td>
+                <td>{{ number_format($item->quantity * $item->price* 1000) }} VND</td>
             </tr>
             @endforeach
             @else

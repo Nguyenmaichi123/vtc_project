@@ -36,12 +36,12 @@
 
         <div>
             <label for="price">Giá:</label>
-            <input type="number" step="0.01" name="price" value="{{ $product->price }}" required>
+            <input type="number" step="0.01" name="price" value="{{ $product->price* 1000 }}" required>
         </div>
 
         <div>
             <label for="sale_price">Giá khuyến mãi:</label>
-            <input type="number" step="0.01" name="sale_price" value="{{ $product->sale_price }}" required>
+            <input type="number" step="0.01" name="sale_price" value="{{ $product->sale_price* 1000 }}" required>
         </div>
 
         <div class="full-width">
@@ -56,7 +56,7 @@
 
         <div class="full-width">
             <label for="img">Hình ảnh:</label>
-            <input type="file" name="img" >
+            <input type="file" name="img">
         </div>
 
         <button type="submit">Cập nhật</button>

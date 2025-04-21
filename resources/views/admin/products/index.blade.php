@@ -21,7 +21,7 @@
                 <td>{{ $product->id }}</td>
                 <td>{{ $product->name }}</td>
                 <td>{{ $product->category ?? 'Chưa phân loại' }}</td> <!-- ✅ Sửa lại -->
-                <td>{{ number_format($product->price) }} VND</td>
+                <td>{{ number_format($product->price* 1000) }} VND</td>
                 <td>
                     <a href="{{ route('products.edit', $product->id) }}" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> Sửa</a>
                     <form action="{{ route('products.destroy', $product->id) }}" method="POST" class="d-inline">

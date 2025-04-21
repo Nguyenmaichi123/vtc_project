@@ -169,7 +169,6 @@
         display: block;
     }
 
-
     .navbar-nav .dropdown-menu .nav-item.dropdown>.dropdown-toggle {
         display: flex;
         align-items: center;
@@ -204,5 +203,5 @@
 
 
 
-    }
+    
 </style>
